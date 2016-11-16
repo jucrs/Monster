@@ -1,10 +1,12 @@
 #include "home.h"
 
-void inithome(SDL_Surface *home, SDL_Surface *screen, SDL_Event event, bool &play, bool &level, bool &quit)
+void inithome(SDL_Surface *home, SDL_Surface *screen, bool &play, bool &level, bool &quit)
 {
 
     applySurface(0,0,home,screen,NULL);
     SDL_Flip(screen);
+
+    SDL_Event event;
 
     int x=event.button.x;
     int y=event.button.y;

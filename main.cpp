@@ -36,7 +36,7 @@ int main()
 
         while(!play)
         {
-            inithome(home,screen,event,play,level,quit);
+            inithome(home,screen,play,level,quit);
 
         }
         while(!level)
