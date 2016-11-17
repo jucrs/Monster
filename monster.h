@@ -1,7 +1,6 @@
 #ifndef MONSTER
 #define MONSTER
 #include "functions.h"
-#include "levels.h"
 
 const int sizeMw=43;
 const int sizeMh=45;
@@ -22,7 +21,7 @@ struct monster
     SDL_Rect *lecture;
 };
 
-void initMonster(monster &m);
+void initMonster(monster &m, SDL_Surface *screen);
 
 #endif // MONSTER
 

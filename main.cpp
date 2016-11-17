@@ -27,29 +27,29 @@ int main()
     bool level=false;
 
     Level lvl;
-    /*monster m;
-    initMonster(m);*/
-
+    monster m;
 
     while(!quit)
     {
 
-        while(!play)
+        while(!play&&!quit)
         {
             inithome(home,screen,play,level,quit);
-
         }
-        while(!level)
+        while(!level&&!quit)
         {
+            initLevel(lvl,1,background,screen);
+
             int x=event.button.x;
             int y=event.button.y;
 
-            initLevel(lvl,3,background,screen);
-            SDL_Flip(screen);
-
             while (SDL_PollEvent(&event))
             {
-                if ((x>75) && (x<120) && (y>506) && (y<551))
+                if( event.type == SDL_QUIT )
+                {
+                    quit = true;
+                }
+                else if ((x>75) && (x<120) && (y>506) && (y<551))
                 {
                     if (event.button.button==SDL_BUTTON_LEFT)
                     {
@@ -57,10 +57,7 @@ int main()
                         play=false;
                     }
                 }
-                if( event.type == SDL_QUIT )
-                {
-                    quit = true;
-                }
+
             }
         }
 

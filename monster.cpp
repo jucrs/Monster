@@ -3,7 +3,7 @@
 using namespace std;
 
 
-void initMonster(monster &m)
+void initMonster(monster &m, SDL_Surface *screen)
 {
     m.typeMonster=STANDARD;
 
@@ -20,4 +20,6 @@ void initMonster(monster &m)
     m.lecture->y=147;
     m.lecture->w=sizeMw;
     m.lecture->h=sizeMh;
+
+    applySurface(100,100,m.source,screen,m.lecture);
 }

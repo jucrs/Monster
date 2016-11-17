@@ -9,7 +9,9 @@ void initLevel(Level lvl,int nbMonster, SDL_Surface *background, SDL_Surface *sc
     applySurface(0,0,background,screen,NULL);
 
     lvl.nbMonster=nbMonster;
-    //initialisation du premier monstre de ce niveau (il y en a plusieurs (lvl.nbMonster) à faire)
-    //initMonster( lvl.tabMonster[0] );
 
+    //initialisation du premier monstre de ce niveau (il y en a plusieurs (lvl.nbMonster) à faire)
+    initMonster(lvl.tabMonster[0],screen);
+
+    SDL_Flip(screen);
 }

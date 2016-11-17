@@ -9,11 +9,10 @@ const int NB_MAX_MONSTER = 45;
 
 struct Level
 {
-    //std::array<monster,NB_MAX_MONSTER> tabMonster;
+    std::array<monster,NB_MAX_MONSTER> tabMonster;
     int nbMonster;
 
     SDL_Surface *source;
-    SDL_Rect *lecture;
 
 };
 
