@@ -18,7 +18,7 @@ struct Level
 };
 
 //Définition des prototypes de fonctions
-void initLevel(Level lvl, int nbMonster, SDL_Surface *background, SDL_Surface *screen, TGrid &grid);
+void initLevel(Level &lvl, int nbMonster, SDL_Surface *background, SDL_Surface *screen, TGrid &grid);
 
 #endif // LEVELS
 

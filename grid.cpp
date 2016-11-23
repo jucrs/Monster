@@ -16,16 +16,16 @@ void convertTo_IJ (int x, int y, int &i, int &j)
 
 void convertTo_Px(int &x, int &y, int i, int j)
 {
-    x = j * CASE_X;
-    y = i * CASE_Y;
+    x = BORDER_X + i * CASE_X;
+    y = BORDER_Y + j * CASE_Y;
 }
 
-void afficherGrid(TGrid grid, int size, int size2)
+void afficherGrid(TGrid grid)
 {
 
-    for (int i = 0; i < size ; i++)
+    for (int i = 0; i < SIZE_H ; i++)
     {
-        for( int j = 0 ; j < size2 ; j++)
+        for( int j = 0 ; j < SIZE_W ; j++)
         {
             cout << grid[i][j] << " ";
         }

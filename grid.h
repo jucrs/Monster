@@ -5,7 +5,7 @@
 using namespace std;
 
 //Constantes
-const int BORDER_X = 19;
+const int BORDER_X = 21;
 const int BORDER_Y = 34;
 const int CASE_X = 50;
 const int CASE_Y = 54;
@@ -19,6 +19,6 @@ void initGrid(TGrid &grid);
 void convertTo_IJ (int x, int y,int &i, int &j);
 void convertTo_Px (int &x, int &y, int i, int j);
 
-void afficherGrid(TGrid grid, int size, int size2);
+void afficherGrid(TGrid grid);
 
 #endif // GRID_H
