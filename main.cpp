@@ -4,6 +4,7 @@
 #include "functions.h"
 #include "levels.h"
 #include "home.h"
+#include "grid.h"
 
 using namespace std;
 
@@ -26,6 +27,9 @@ int main()
     bool play=false;
     bool level=false;
 
+    TGrid grid;
+    int i,j;
+
     Level lvl;
     monster m;
 
@@ -38,7 +42,13 @@ int main()
         }
         while(!level&&!quit)
         {
-            initLevel(lvl,1,background,screen);
+            initLevel(lvl,1,background,screen,grid);
+
+
+            initGrid(grid);
+            convertTo_IJ(i,j);
+            cout << i << endl;
+            cout << j << endl;
 
             int x=event.button.x;
             int y=event.button.y;

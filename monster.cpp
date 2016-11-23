@@ -21,5 +21,5 @@ void initMonster(monster &m, SDL_Surface *screen)
     m.lecture->w=sizeMw;
     m.lecture->h=sizeMh;
 
-    applySurface(100,100,m.source,screen,m.lecture);
+
 }
