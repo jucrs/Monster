@@ -7,7 +7,7 @@ const int sizeMh=45;
 
 enum EnumMonster {STANDARD,DORMEUR,DEAD};
 
-struct monster
+struct Monster
 {
     EnumMonster typeMonster;
     int casex;
@@ -21,7 +21,7 @@ struct monster
     SDL_Rect *lecture;
 };
 
-void initMonster(monster &m, SDL_Surface *screen);
+void initMonster(Monster &m, SDL_Surface *screen);
 
 #endif // MONSTER
 

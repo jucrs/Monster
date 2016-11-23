@@ -10,9 +10,10 @@ using namespace std;
 
 int main()
 {
+    SDL_Init(SDL_INIT_EVERYTHING);
+
     //Mise en place de l'écran
     SDL_Surface *screen;
-    SDL_Init(SDL_INIT_EVERYTHING);
     screen=SDL_SetVideoMode(SCREEN_WIDTH,SCREEN_HEIGHT,SCREEN_BPP,SDL_SWSURFACE);
 
     //Définition des fonds d'écran
@@ -31,24 +32,18 @@ int main()
     int i,j;
 
     Level lvl;
-    monster m;
+    Monster m;
 
     while(!quit)
     {
 
-        while(!play&&!quit)
+        while(!play && !quit)
         {
             inithome(home,screen,play,level,quit);
         }
-        while(!level&&!quit)
+        while(!level && !quit)
         {
             initLevel(lvl,1,background,screen,grid);
-
-
-            initGrid(grid);
-            convertTo_IJ(i,j);
-            cout << i << endl;
-            cout << j << endl;
 
             int x=event.button.x;
             int y=event.button.y;

@@ -3,7 +3,7 @@
 using namespace std;
 
 
-void initMonster(monster &m, SDL_Surface *screen)
+void initMonster(Monster &m, SDL_Surface *screen)
 {
     m.typeMonster=STANDARD;
 

@@ -7,13 +7,8 @@ void initGrid(TGrid &grid)
             grid[i][j] = 0;
 }
 
-void convertTo_IJ (int &i, int &j)
+void convertTo_IJ (int x, int y, int &i, int &j)
 {
-    SDL_Event event;
-
-    int x=event.button.x;
-    int y=event.button.y;
-
     i = x % CASE_X;
     j = y % CASE_Y;
 
@@ -24,4 +19,18 @@ void convertTo_Px(int &x, int &y, int i, int j)
     x = j * CASE_X;
     y = i * CASE_Y;
 }
+
+void afficherGrid(TGrid grid, int size, int size2)
+{
+
+    for (int i = 0; i < size ; i++)
+    {
+        for( int j = 0 ; j < size2 ; j++)
+        {
+            cout << grid[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
 

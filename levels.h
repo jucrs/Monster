@@ -10,7 +10,7 @@ const int NB_MAX_MONSTER = 45;
 
 struct Level
 {
-    std::array<monster,NB_MAX_MONSTER> tabMonster;
+    std::array<Monster,NB_MAX_MONSTER> tabMonster;
     int nbMonster;
 
     SDL_Surface *source;
@@ -18,7 +18,7 @@ struct Level
 };
 
 //Définition des prototypes de fonctions
-void initLevel(Level lvl, int nbMonster, SDL_Surface *background, SDL_Surface *screen, TGrid grid);
+void initLevel(Level lvl, int nbMonster, SDL_Surface *background, SDL_Surface *screen, TGrid &grid);
 
 #endif // LEVELS
 

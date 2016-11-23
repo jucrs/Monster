@@ -12,9 +12,9 @@ QMAKE_CXXFLAGS += -std=c++11 -pedantic -Wall -Wextra
 SOURCES += main.cpp \
     functions.cpp \
     monster.cpp \
-    level0.cpp \
     home.cpp \
-    grid.cpp
+    grid.cpp \
+    levels.cpp
 
 HEADERS += \
     functions.h \

@@ -49,6 +49,5 @@ SDL_Surface *loadImage(std::string filename);
 ************************************************************/
 void applySurface(int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* clip);
 
-
 #endif // FUNCTIONS
 

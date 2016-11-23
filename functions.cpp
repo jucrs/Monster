@@ -1,4 +1,3 @@
-
 #include "functions.h"
 
 using namespace std;
@@ -98,4 +97,3 @@ void showMessageScreen(string message,int x,int y, TTF_Font *font,int fontSize,S
     applySurface(x,y,mes,screen,NULL);
     SDL_FreeSurface(mes);
 }
-

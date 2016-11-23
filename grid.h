@@ -13,11 +13,12 @@ const int CASE_Y = 54;
 // Défintion grille
 const int SIZE_H = 9;
 const int SIZE_W = 5;
-using TGrid = array<array<int,SIZE_H>,SIZE_W>;
+using TGrid = array<array<int,SIZE_W>,SIZE_H>;
 
 void initGrid(TGrid &grid);
-void convertTo_IJ (int &i, int &j);
+void convertTo_IJ (int x, int y,int &i, int &j);
 void convertTo_Px (int &x, int &y, int i, int j);
 
+void afficherGrid(TGrid grid, int size, int size2);
 
 #endif // GRID_H
