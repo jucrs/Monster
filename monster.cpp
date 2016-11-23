@@ -7,8 +7,8 @@ void initMonster(Monster &m, SDL_Surface *screen)
 {
     m.typeMonster=STANDARD;
 
-    m.casex=0;
-    m.casey=0;
+    m.casei=0;
+    m.casej=0;
     m.w=sizeMw;
     m.h=sizeMh;
     m.mvt_x=0;

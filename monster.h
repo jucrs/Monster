@@ -10,8 +10,8 @@ enum EnumMonster {STANDARD,DORMEUR,DEAD};
 struct Monster
 {
     EnumMonster typeMonster;
-    int casex;
-    int casey;
+    int casei;
+    int casej;
     int w;
     int h;
     int mvt_x;
