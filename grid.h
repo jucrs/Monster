@@ -33,27 +33,40 @@ void initGrid(TGrid &grid);
 ******************** Auteur , Dates *************************
 * Groupe / 23 novembre                                      *
 ********************* Description ***************************
-* Télécharge une image en enlevant une couleur              *
+* Convertit les coordonnées de l'écran choisi en coordonnées*
+* de la grille                                              *
 *********************** Entrées *****************************
-* nom de l'image et les couleurs rouge/vert/bleu            *
+* coordonnées x, y                                          *
 *********************** Sorties *****************************
-* l'image avec la couleur enlevé                            *
+* coordonnées i, j                                          *
 ************************************************************/
 void convertTo_IJ (int x, int y,int &i, int &j);
 
 /****************** Nom de la fonction **********************
-* loadImageWithColorKey                                     *
+* convertTo_Px                                              *
 ******************** Auteur , Dates *************************
 * Groupe / 23 novembre                                      *
 ********************* Description ***************************
-* Télécharge une image en enlevant une couleur              *
+* Convertit les coordonnées de la grille choisi en          *
+* coordonnées de l'écran                                    *
 *********************** Entrées *****************************
-* nom de l'image et les couleurs rouge/vert/bleu            *
+* coordonnées i, j                                          *
 *********************** Sorties *****************************
-* l'image avec la couleur enlevé                            *
+* coordonnées x, y                                          *
 ************************************************************/
 void convertTo_Px (int &x, int &y, int i, int j);
 
-void afficherGrid(TGrid grid);
+/****************** Nom de la fonction **********************
+* showGrid                                                  *
+******************** Auteur , Dates *************************
+* Groupe / 23 novembre                                      *
+********************* Description ***************************
+* Affiche la grille sur le terminal                         *
+*********************** Entrées *****************************
+* La grille                                                 *
+*********************** Sorties *****************************
+* Aucune                                                    *
+************************************************************/
+void showGrid(TGrid grid);
 
 #endif // GRID_H

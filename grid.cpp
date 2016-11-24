@@ -20,7 +20,7 @@ void convertTo_Px(int &x, int &y, int i, int j)
     y = BORDER_Y + j * CASE_Y;
 }
 
-void afficherGrid(TGrid grid)
+void showGrid(TGrid grid)
 {
 
     for (int i = 0; i < SIZE_H ; i++)

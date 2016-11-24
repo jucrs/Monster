@@ -22,7 +22,7 @@ void initLevel(Level &lvl,int nbMonster, SDL_Surface *background, SDL_Surface *s
 
     grid[2][4]=1;
 
-    afficherGrid(grid);
+    showGrid(grid);
     for (int i = 0 ; i < SIZE_H ; i++)
     {
         for (int j = 0 ; j < SIZE_W ; j++)
@@ -35,7 +35,7 @@ void initLevel(Level &lvl,int nbMonster, SDL_Surface *background, SDL_Surface *s
             }
         }
     }
-    afficherGrid(grid);
+    showGrid(grid);
 
 
     SDL_Flip(screen);
