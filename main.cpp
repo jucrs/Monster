@@ -18,7 +18,7 @@ int main()
 
     //Définition des fonds d'écran
     SDL_Surface *background;
-    background=loadImage("background.bmp");
+    background=loadImage("background.png");
     SDL_Surface *home;
     home=loadImage("home.bmp");
 
