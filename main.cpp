@@ -29,10 +29,8 @@ int main()
     bool level=false;
 
     TGrid grid;
-    //int i,j;
 
-    Level lvl;
-    //Monster m;
+    Monster m;
 
     while(!quit)
     {
@@ -43,7 +41,8 @@ int main()
         }
         while(!level && !quit)
         {
-            initLevel(lvl,1,background,screen,grid);
+            initLevel1(grid);
+            showLevel(m,screen,background,grid);
 
             int x=event.button.x;
             int y=event.button.y;

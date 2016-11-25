@@ -1,8 +1,6 @@
 #ifndef GRID_H
 #define GRID_H
 #include "functions.h"
-#include "levels.h"
-//#include "monster.h"
 
 using namespace std;
 
@@ -80,6 +78,6 @@ void convertTo_Px (int &x, int &y, int i, int j);
 ************************************************************/
 void showGrid(TGrid grid);
 
-void placeElem (Level &lvl, SDL_Surface *screen, TGrid grid, int x, int y);
+void placeElem (SDL_Surface *screen, TGrid grid, int x, int y);
 
 #endif // GRID_H
