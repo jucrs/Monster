@@ -1,16 +1,27 @@
 #ifndef GRID_H
 #define GRID_H
 #include "functions.h"
+#include "levels.h"
+//#include "monster.h"
 
 using namespace std;
 
 //Constantes
-const int BORDER_X = 21;
-const int BORDER_Y = 34;
-const int CASE_X = 50;
-const int CASE_Y = 54;
+const int BORDER_X = 250;
+const int BORDER_Y = 50;
+const int CASE_X = 100;
+const int CASE_Y = 100;
 
-// Défintion grille
+/**************** Définition de la grille *******************
+* 1=monster                                                 *
+* 2=sleeping monster                                        *
+* 3=ice                                                     *
+* 4=book                                                    *
+* 5=speed down                                              *
+* 6=speed up                                                *
+* 7=speed right                                             *
+* 8=speed left                                              *
+*************************************************************/
 const int SIZE_H = 9;
 const int SIZE_W = 5;
 using TGrid = array<array<int,SIZE_W>,SIZE_H>;
@@ -68,5 +79,7 @@ void convertTo_Px (int &x, int &y, int i, int j);
 * Aucune                                                    *
 ************************************************************/
 void showGrid(TGrid grid);
+
+void placeElem (Level &lvl, SDL_Surface *screen, TGrid grid, int x, int y);
 
 #endif // GRID_H

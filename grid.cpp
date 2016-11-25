@@ -16,8 +16,8 @@ void convertTo_IJ (int x, int y, int &i, int &j)
 
 void convertTo_Px(int &x, int &y, int i, int j)
 {
-    x = BORDER_X + i * CASE_X;
-    y = BORDER_Y + j * CASE_Y;
+    x = BORDER_X + j * CASE_Y;
+    y = BORDER_Y + i * CASE_X;
 }
 
 void showGrid(TGrid grid)
@@ -31,6 +31,7 @@ void showGrid(TGrid grid)
         }
         cout << endl;
     }
+    cout << endl;
 }
 
 
