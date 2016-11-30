@@ -1,5 +1,5 @@
-#include "functions.h"
-#include "backGrounds.h"
+#include "function.h"
+#include "background.h"
 
 
 using namespace std;

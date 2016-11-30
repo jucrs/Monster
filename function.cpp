@@ -1,4 +1,4 @@
-#include "functions.h"
+#include "function.h"
 
 using namespace std;
 
@@ -60,7 +60,9 @@ SDL_Surface *loadImage(string filename)
 }
 
 //Affiche les images sur l'écran tampon
-void applySurface(int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* clip)
+void
+applySurface(int x, int y, SDL_Surface* source,
+             SDL_Surface* destination, SDL_Rect* clip)
 {
     SDL_Rect offset;
     offset.x = x;
@@ -97,3 +99,4 @@ void showMessageScreen(string message,int x,int y, TTF_Font *font,int fontSize,S
     applySurface(x,y,mes,screen,NULL);
     SDL_FreeSurface(mes);
 }
+

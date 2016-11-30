@@ -1,17 +1,22 @@
 #ifndef OBSTACLE_H
 #define OBSTACLE_H
-#include "functions.h"
+#include "function.h"
+#include "grid.h"
 
 using namespace std;
 
-struct obstacle
+
+struct Obstacle
 {
+
     SDL_Surface *source;
-    SDL_Rect *lecture;
+    SDL_Rect lecture;
 };
 
-void initBook(obstacle &b);
-void initIce (obstacle &g);
+void initBook(Obstacle &b);
+void initIce (Obstacle &g);
+void showBook(Obstacle &b, SDL_Surface *screen, int i, int j);
+void showIce (Obstacle &g, SDL_Surface *screen, int i, int j);
 
 #endif // OBSTACLE_H
 

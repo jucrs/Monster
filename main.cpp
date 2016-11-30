@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "backGrounds.h"
-#include "functions.h"
+#include "background.h"
+#include "function.h"
 #include "levels.h"
 #include "home.h"
 #include "grid.h"
@@ -30,8 +30,8 @@ int main()
 
     TGrid grid;
 
-    Monster m;
-    obstacle b,g;
+//    Monster m;
+//  obstacle b,g;
     while(!quit)
     {
 
@@ -45,7 +45,7 @@ int main()
         while(!level && !quit)
         {
             initLevel1(grid);
-            showLevel(m,g,b,screen,background,grid);
+            showLevel(screen,background,grid);
 
             int x=event.button.x;
             int y=event.button.y;

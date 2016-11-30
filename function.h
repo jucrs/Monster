@@ -47,7 +47,7 @@ SDL_Surface *loadImage(std::string filename);
 *********************** Sorties *****************************
 * L'écran modifié et le rectangle de lectur s'il y en a un  *
 ************************************************************/
-void applySurface(int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* clip);
+void applySurface(int x, int y, SDL_Surface *source, SDL_Surface *destination, SDL_Rect *clip);
 
 #endif // FUNCTIONS
 

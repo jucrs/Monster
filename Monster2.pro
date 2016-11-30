@@ -10,18 +10,20 @@ INCLUDEPATH+=-I/usr/include/SDL/
 QMAKE_CXXFLAGS += -std=c++11 -pedantic -Wall -Wextra
 
 SOURCES += main.cpp \
-    functions.cpp \
     monster.cpp \
-    home.cpp \
+    function.cpp \
+    background.cpp \
     grid.cpp \
+    home.cpp \
     levels.cpp \
     obstacle.cpp
 
 HEADERS += \
-    functions.h \
     monster.h \
-    levels.h \
-    home.h \
+    function.h \
+    background.h \
     grid.h \
+    home.h \
+    levels.h \
     obstacle.h
 

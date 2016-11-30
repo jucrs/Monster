@@ -1,6 +1,6 @@
 #ifndef GRID_H
 #define GRID_H
-#include "functions.h"
+#include "function.h"
 
 using namespace std;
 

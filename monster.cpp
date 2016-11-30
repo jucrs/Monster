@@ -1,32 +1,49 @@
 #include "monster.h"
+#include "levels.h"
 
 using namespace std;
 
 
 void initMonster(Monster &m)
 {
-    //m.typeMonster=STANDARD;
-
-
-
-    m.source=loadImageWithColorKey("sprite.bmp",255,255,255);
-
-    m.lecture->x=16;
-    m.lecture->y=147;
-    m.lecture->w=sizeMw;
-    m.lecture->h=sizeMh;
+    m.lecture.x=16;
+    m.lecture.y=147;
+    m.lecture.w=sizeMw;
+    m.lecture.h=sizeMh;
 }
 
-void initMonsterSleep(Monster &m)
+void initMonsterSleep(Monster &m2)
 {
-    //m.typeMonster=DORMEUR;
+    m2.lecture.x=0;
+    m2.lecture.y=0;
+    m2.lecture.w=75;
+    m2.lecture.h=68;
+}
 
-
+void showMonster(Monster &m, SDL_Surface *screen, int i, int j)
+{
+    int x,y;
 
     m.source=loadImageWithColorKey("sprite.bmp",255,255,255);
+    convertTo_Px(x,y,i,j);
+    initMonster(m);
+    applySurface(x,y,m.source,screen, &m.lecture);
 
-    m.lecture->x=0;
-    m.lecture->y=0;
-    m.lecture->w=75;
-    m.lecture->h=68;
+
 }
+
+void showMonsterSleep(Monster &m, SDL_Surface *screen, int i, int j)
+{
+    int x,y;
+
+    m.source=loadImageWithColorKey("sprite.bmp",255,255,255);
+    convertTo_Px(x,y,i,j);
+    initMonsterSleep(m);
+    applySurface(x,y,m.source,screen, &m.lecture);
+
+
+}
+
+
+
+
