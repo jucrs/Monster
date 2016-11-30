@@ -1,6 +1,4 @@
 #include <iostream>
-
-#include "background.h"
 #include "function.h"
 #include "levels.h"
 #include "home.h"
@@ -30,8 +28,6 @@ int main()
 
     TGrid grid;
 
-//    Monster m;
-//  obstacle b,g;
     while(!quit)
     {
 
@@ -39,8 +35,6 @@ int main()
         {
             inithome(home,screen,play,level,quit);
         }
-
-        //SDL_FreeSurface (screen);
 
         while(!level && !quit)
         {
@@ -66,8 +60,6 @@ int main()
                 }
 
             }
-
-            //SDL_FreeSurface (screen);
         }
 
     }
