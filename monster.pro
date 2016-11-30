@@ -14,12 +14,14 @@ SOURCES += main.cpp \
     monster.cpp \
     home.cpp \
     grid.cpp \
-    levels.cpp
+    levels.cpp \
+    obstacle.cpp
 
 HEADERS += \
     functions.h \
     monster.h \
     levels.h \
     home.h \
-    grid.h
+    grid.h \
+    obstacle.h
 

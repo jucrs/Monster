@@ -31,7 +31,7 @@ int main()
     TGrid grid;
 
     Monster m;
-
+    obstacle b,g;
     while(!quit)
     {
 
@@ -39,10 +39,13 @@ int main()
         {
             inithome(home,screen,play,level,quit);
         }
+
+        //SDL_FreeSurface (screen);
+
         while(!level && !quit)
         {
             initLevel1(grid);
-            showLevel(m,screen,background,grid);
+            showLevel(m,g,b,screen,background,grid);
 
             int x=event.button.x;
             int y=event.button.y;
@@ -63,6 +66,8 @@ int main()
                 }
 
             }
+
+            //SDL_FreeSurface (screen);
         }
 
     }
