@@ -24,7 +24,11 @@ void showMonster(Monster &m, SDL_Surface *screen, int i, int j)
 {
     int x,y;
 
+<<<<<<< HEAD
     m.source=loadImage("monster.png");
+=======
+    //m.source=loadImageWithColorKey("sprite.bmp",0,0,0);
+>>>>>>> 0413ed8aaab7fc5b2c13695f56615815cae3f299
     convertTo_Px(x,y,i,j);
     initMonster(m);
     applySurface(x,y,m.source,screen,NULL);
@@ -32,14 +36,21 @@ void showMonster(Monster &m, SDL_Surface *screen, int i, int j)
 
 }
 
-void showMonsterSleep(Monster &m, SDL_Surface *screen, int i, int j)
+void showMonsterSleep(Monster &ms, SDL_Surface *screen, int i, int j)
 {
     int x,y;
 
+<<<<<<< HEAD
     m.source=loadImage("snowman.png");
     convertTo_Px(x,y,i,j);
     initMonsterSleep(m);
     applySurface(x,y,m.source,screen,NULL);
+=======
+   // ms.source=loadImageWithColorKey("sprite.bmp",0,0,0);
+    convertTo_Px(x,y,i,j);
+    initMonsterSleep(ms);
+    applySurface(x,y,ms.source,screen, &ms.lecture);
+>>>>>>> 0413ed8aaab7fc5b2c13695f56615815cae3f299
 
 
 }

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 3.5.1, 2016-12-05T13:59:59. -->
+=======
+<<<<<<< HEAD:Monster.pro.user
+<!-- Written by QtCreator 3.5.1, 2016-12-04T20:56:44. -->
+=======
+<!-- Written by QtCreator 3.5.1, 2016-12-02T06:52:49. -->
+>>>>>>> 52694ce53355473eb1409924bcca8268f31eb853:Monster.pro.user
+>>>>>>> 0413ed8aaab7fc5b2c13695f56615815cae3f299
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -240,12 +248,20 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Monster</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+<<<<<<< HEAD:Monster.pro.user
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/nicolas/Bureau/Monster/Monster.pro</value>
+=======
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/ubuntu/Bureau/Monster/Monster.pro</value>
+>>>>>>> 52694ce53355473eb1409924bcca8268f31eb853:Monster.pro.user
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">Monster.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseTerminal">true</value>
+<<<<<<< HEAD:Monster.pro.user
+    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory">/home/nicolas/Bureau/Monster</value>
+=======
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory">/home/ubuntu/Bureau/Monster</value>
+>>>>>>> 52694ce53355473eb1409924bcca8268f31eb853:Monster.pro.user
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
