@@ -60,43 +60,10 @@ SDL_Surface *loadImage(string filename)
 }
 
 //Affiche les images sur l'écran tampon
-void
-applySurface(int x, int y, SDL_Surface* source,
-             SDL_Surface* destination, SDL_Rect* clip)
+void applySurface(int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* clip)
 {
     SDL_Rect offset;
     offset.x = x;
     offset.y = y;
     SDL_BlitSurface( source, clip, destination, &offset );
 }
-
-//Affiche le score à l'écran
-void showMessageScreen(string message,int x,int y, TTF_Font *font,int fontSize,SDL_Color textColor,SDL_Surface* &screen)
-{
-    string mot="";
-    string space=" ";
-    int i=0,j;
-    SDL_Surface *mes=NULL;
-
-    j = message.find(space);
-    while( j != string::npos )
-    {
-        mot=message.substr(i,j-i);
-        if(mot != "")
-        {
-            mes=TTF_RenderText_Solid(font,mot.c_str(),textColor);
-            applySurface(x,y,mes,screen,NULL);
-            x+=mes->w;
-            SDL_FreeSurface(mes);
-        }
-        x+=fontSize;
-        i=j+1;
-        j = message.find(space,i);
-    }
-
-    mot=message.substr(i);
-    mes=TTF_RenderText_Solid(font,mot.c_str(),textColor);
-    applySurface(x,y,mes,screen,NULL);
-    SDL_FreeSurface(mes);
-}
-

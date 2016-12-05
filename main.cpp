@@ -1,6 +1,4 @@
 #include <iostream>
-
-#include "background.h"
 #include "function.h"
 #include "levels.h"
 #include "home.h"
@@ -50,8 +48,6 @@ int main()
             inithome(home,screen,play,level,quit);
         }
 
-        //SDL_FreeSurface (screen);
-
         while(!level && !quit)
         {
             initLevel1(grid);
@@ -76,8 +72,6 @@ int main()
                 }
 
             }
-
-            //SDL_FreeSurface (screen);
         }
 
     }

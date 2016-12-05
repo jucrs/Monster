@@ -45,5 +45,32 @@ void showMonsterSleep(Monster &ms, SDL_Surface *screen, int i, int j)
 }
 
 
+//---------------------------------A FAIRE !!! -------------------------------------
+/*void mooveMonster (TGrid grid)
+{
+    int x=event.button.x;
+    int y=event.button.y;
 
+    int i,j;
+
+    SDL_Event event;
+
+    while (SDL_PollEvent(&event))
+    {
+        if (event.type == SDL_BUTTON_LEFT)
+        {
+            convertTo_IJ(x,y,i,j);
+
+            if(grid[i][j]==1)
+            {
+
+            }
+        }
+    }
+
+}
+//----------------------------------------------------------------------------------
+
+
+*/
 
