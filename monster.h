@@ -4,8 +4,8 @@
 #include "grid.h"
 
 
-const int sizeMw=43;
-const int sizeMh=45;
+const int sizeMw=60;
+const int sizeMh=60;
 //const int NB_MAX_MONSTER=10;
 
 using namespace std;

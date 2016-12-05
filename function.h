@@ -10,8 +10,8 @@
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_ttf.h>
 
-const int SCREEN_WIDTH=1000;
-const int SCREEN_HEIGHT=1000;
+const int SCREEN_WIDTH=700;
+const int SCREEN_HEIGHT=700;
 const int SCREEN_BPP=32;
 
 /****************** Nom de la fonction **********************

@@ -18,7 +18,7 @@ int main()
     SDL_Surface *background;
     background=loadImage("background.png");
     SDL_Surface *home;
-    home=loadImage("home.bmp");
+    home=loadImage("home.png");
 
     SDL_Event event;
 

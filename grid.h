@@ -5,10 +5,10 @@
 using namespace std;
 
 //Constantes
-const int BORDER_X = 250;
-const int BORDER_Y = 50;
-const int CASE_X = 100;
-const int CASE_Y = 100;
+const int BORDER_X = 175;
+const int BORDER_Y = 35;
+const int CASE_X = 70;
+const int CASE_Y = 70;
 
 /**************** Définition de la grille *******************
 * 1=monster                                                 *
