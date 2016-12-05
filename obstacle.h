@@ -13,10 +13,10 @@ struct Obstacle
     SDL_Rect lecture;
 };
 
-void initBook(Obstacle &b);
-void initIce (Obstacle &g);
-void showBook(Obstacle &b, SDL_Surface *screen, int i, int j);
-void showIce (Obstacle &g, SDL_Surface *screen, int i, int j);
+void initSapin(Obstacle &b);
+void initGift (Obstacle &g);
+void showSapin(Obstacle &b, SDL_Surface *screen, int i, int j);
+void showGift (Obstacle &g, SDL_Surface *screen, int i, int j);
 
 #endif // OBSTACLE_H
 

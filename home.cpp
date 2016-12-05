@@ -13,12 +13,12 @@ void inithome(SDL_Surface *home, SDL_Surface *screen, bool &play, bool &level, b
 
     while (SDL_PollEvent(&event))
     {
-        if ((x>195) && (x<240) && (y>345) && (y<390))
+        /*if ((x>195) && (x<240) && (y>345) && (y<390))
         {
             if (event.button.button==SDL_BUTTON_LEFT)
                 SDL_Quit();
-        }
-        if ((x>120) && (x<183) && (y>280) && (y<350))
+        }*/
+        if ((x>455) && (x<480) && (y>410) && (y<485))
         {
             if (SDL_WaitEvent(&event))
                 if (event.button.button==SDL_BUTTON_LEFT)

@@ -43,11 +43,11 @@ void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid)
                 break;
 
             case 3:
-                showBook(b,screen,i,j);
+                showSapin(b,screen,i,j);
                 break;
 
             case 4:
-                showIce(g,screen,i,j);
+                showGift(g,screen,i,j);
                 break;
 
             default:
@@ -59,34 +59,7 @@ void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid)
     SDL_Flip(screen);
 }
 
-//---------------------------------A FAIRE !!! -------------------------------------
-/*void mooveMonster (TGrid grid)
-{
-    int x=event.button.x;
-    int y=event.button.y;
 
-    int i,j;
-
-    SDL_Event event;
-
-    while (SDL_PollEvent(&event))
-    {
-        if (event.type == SDL_BUTTON_LEFT)
-        {
-            convertTo_IJ(x,y,i,j);
-
-            if(grid[i][j]==1)
-            {
-
-            }
-        }
-    }
-
-}
-//----------------------------------------------------------------------------------
-
-
-*/
 
 
 

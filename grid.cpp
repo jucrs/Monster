@@ -16,8 +16,8 @@ void convertTo_IJ (int x, int y, int &i, int &j)
 
 void convertTo_Px(int &x, int &y, int i, int j)
 {
-    x = BORDER_X + j * CASE_Y;
-    y = BORDER_Y + i * CASE_X;
+    x = BORDER_X + j * CASE_Y + 5;
+    y = BORDER_Y + i * CASE_X + 5;
 }
 
 void showGrid(TGrid grid)

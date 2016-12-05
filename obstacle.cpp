@@ -1,6 +1,6 @@
 #include "obstacle.h"
 
-void initBook (Obstacle &b)
+void initSapin (Obstacle &b)
 {
     b.lecture.x=75;
     b.lecture.y=70;
@@ -8,7 +8,7 @@ void initBook (Obstacle &b)
     b.lecture.h=69;
 }
 
-void initIce (Obstacle &g)
+void initGift (Obstacle &g)
 {
     g.lecture.x=0;
     g.lecture.y=70;
@@ -16,26 +16,26 @@ void initIce (Obstacle &g)
     g.lecture.h=68;
 }
 
-void showBook(Obstacle &b, SDL_Surface *screen, int i, int j)
+void showSapin(Obstacle &b, SDL_Surface *screen, int i, int j)
 {
     int x,y;
 
-    b.source=loadImageWithColorKey("sprite.bmp",255,255,255);
+    b.source=loadImage("sapin.png");
     convertTo_Px(x,y,i,j);
-    initBook(b);
-    applySurface(x,y,b.source,screen, &b.lecture);
+    initSapin(b);
+    applySurface(x,y,b.source,screen,NULL);
 
 
 }
 
-void showIce (Obstacle &g, SDL_Surface *screen, int i, int j)
+void showGift (Obstacle &g, SDL_Surface *screen, int i, int j)
 {
     int x,y;
 
-     g.source=loadImageWithColorKey("sprite.bmp",255,255,255);
+     g.source=loadImage("gift.png");
     convertTo_Px(x,y,i,j);
-    initIce(g);
-    applySurface(x,y,g.source,screen, &g.lecture);
+    initGift(g);
+    applySurface(x,y,g.source,screen,NULL);
 
 
 }
