@@ -17,6 +17,13 @@ void initBook(Obstacle &b);
 void initIce (Obstacle &g);
 void showBook(Obstacle &b, SDL_Surface *screen, int i, int j);
 void showIce (Obstacle &g, SDL_Surface *screen, int i, int j);
-
+void initSpeedUp(Obstacle &su);
+void initSpeedDown(Obstacle &sd);
+void initSpeedLeft(Obstacle &sl);
+void initSpeedRight(Obstacle &sr);
+void showSpeedUp (Obstacle &su, SDL_Surface *screen, int i, int j);
+void showSpeedDown (Obstacle &sd, SDL_Surface *screen, int i, int j);
+void showSpeedLeft (Obstacle &sl, SDL_Surface *screen, int i, int j);
+void showSpeedRight (Obstacle &sr, SDL_Surface *screen, int i, int j);
 #endif // OBSTACLE_H
 

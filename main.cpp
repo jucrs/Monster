@@ -29,9 +29,19 @@ int main()
     bool level=false;
 
     TGrid grid;
+    //Monster m,ms;
+    //Obstacle g,b,su,sd,sl,sr;
 
-//    Monster m;
-//  obstacle b,g;
+  //  m.source=loadImageWithColorKey("sprite.bmp",0,0,0);
+  //  ms.source=loadImageWithColorKey("sprite.bmp",0,0,0);
+  //  g.source=loadImageWithColorKey("sprite.bmp",0,0,0);
+  //  b.source=loadImageWithColorKey("sprite.bmp",0,0,0);
+  //  su.source=loadImageWithColorKey("sprite.bmp",0,0,0);
+  //  sd.source=loadImageWithColorKey("sprite.bmp",0,0,0);
+  //  sl.source=loadImageWithColorKey("sprite.bmp",0,0,0);
+  // sr.source=loadImageWithColorKey("sprite.bmp",0,0,0);
+
+
     while(!quit)
     {
 
