@@ -29,15 +29,17 @@ void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid)
     Monster m,ms;
     Obstacle g,b,su,sd,sl,sr;
 
-      m.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-      ms.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-      g.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-      b.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-      su.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-      sd.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-      sl.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-      sr.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-
+     if (&source == 0)
+     {
+      m.source=loadImageWithColorKey("sprite.bmp",255,255,255);
+      ms.source=loadImageWithColorKey("sprite.bmp",255,255,255);
+      g.source=loadImageWithColorKey("sprite.bmp",255,255,255);
+      b.source=loadImageWithColorKey("sprite.bmp",255,255,255);
+      su.source=loadImageWithColorKey("sprite.bmp",255,255,255);
+      sd.source=loadImageWithColorKey("sprite.bmp",255,255,255);
+      sl.source=loadImageWithColorKey("sprite.bmp",255,255,255);
+      sr.source=loadImageWithColorKey("sprite.bmp",255,255,255);
+      }
     applySurface(0,0,background,screen,NULL);
 
     for (int i=0; i < SIZE_H; i++)
