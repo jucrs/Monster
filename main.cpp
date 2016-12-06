@@ -27,18 +27,17 @@ int main()
     bool level=false;
 
     TGrid grid;
-    //Monster m,ms;
-    //Obstacle g,b,su,sd,sl,sr;
 
-  //  m.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-  //  ms.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-  //  g.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-  //  b.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-  //  su.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-  //  sd.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-  //  sl.source=loadImageWithColorKey("sprite.bmp",0,0,0);
-  // sr.source=loadImageWithColorKey("sprite.bmp",0,0,0);
+    TTabImg tabImg;
 
+    tabImg[0]=loadImage("monster.png");
+    tabImg[1]=loadImage("snowman.png");
+    tabImg[2]=loadImage("gift.png");
+    tabImg[3]=loadImage("fit.png");
+//    tabImg[4]=loadImageWithColorKey("sprite.bmp",255,255,255);
+//    tabImg[5]=loadImageWithColorKey("sprite.bmp",255,255,255);
+//    tabImg[6]=loadImageWithColorKey("sprite.bmp",255,255,255);
+//    tabImg[7]=loadImageWithColorKey("sprite.bmp",255,255,255);
 
     while(!quit)
     {
@@ -51,10 +50,13 @@ int main()
         while(!level && !quit)
         {
             initLevel1(grid);
-            showLevel(screen,background,grid);
+            showLevel(screen,background,grid,tabImg);
+
+            mooveMonster(grid);
 
             int x=event.button.x;
             int y=event.button.y;
+
 
             while (SDL_PollEvent(&event))
             {
@@ -62,15 +64,6 @@ int main()
                 {
                     quit = true;
                 }
-                else if ((x>75) && (x<120) && (y>506) && (y<551))
-                {
-                    if (event.button.button==SDL_BUTTON_LEFT)
-                    {
-                        level=true;
-                        play=false;
-                    }
-                }
-
             }
         }
 

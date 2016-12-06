@@ -53,7 +53,7 @@ void showSapin(Obstacle &b, SDL_Surface *screen, int i, int j)
 {
     int x,y;
 
-    b.source=loadImage("sapin.png");
+    //b.source=loadImage("sapin.png");
    // b.source=loadImageWithColorKey("sprite.bmp",0,0,0);
 
     convertTo_Px(x,y,i,j);
@@ -68,7 +68,7 @@ void showGift (Obstacle &g, SDL_Surface *screen, int i, int j)
     int x,y;
 
 
-     g.source=loadImage("gift.png");
+    // g.source=loadImage("gift.png");
 
     //g.source=loadImageWithColorKey("sprite.bmp",0,0,0);
 

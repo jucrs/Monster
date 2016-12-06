@@ -12,6 +12,8 @@ void convertTo_IJ (int x, int y, int &i, int &j)
     i = x % CASE_X;
     j = y % CASE_Y;
 
+    cout << i << " " << j << endl;
+
 }
 
 void convertTo_Px(int &x, int &y, int i, int j)

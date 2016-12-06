@@ -6,7 +6,7 @@
 #include "grid.h"
 #include "obstacle.h"
 
-
+using TTabImg = array<SDL_Surface*,8>;
 
 /****************** Nom de la fonction **********************
 * initlevel1                                                *
@@ -32,7 +32,7 @@ void initLevel1 (TGrid &grid);
 *********************** Sorties *****************************
 * fond d'écran, écran                                       *
 ************************************************************/
-void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid);
+void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid, TTabImg tabImg);
 
 
 bool caseFree (TGrid grid, int i, int j);
