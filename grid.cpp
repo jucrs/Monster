@@ -9,8 +9,8 @@ void initGrid(TGrid &grid)
 
 void convertTo_IJ (int x, int y, int &i, int &j)
 {
-    i = x % CASE_X;
-    j = y % CASE_Y;
+    i = (y-BORDER_Y)/ CASE_Y;
+    j = (x-BORDER_X)/ CASE_X;
 
     cout << i << " " << j << endl;
 

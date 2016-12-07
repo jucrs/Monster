@@ -51,79 +51,49 @@ using namespace std;
 
 
 //---------------------------------A FAIRE !!! -------------------------------------
-void mooveMonster (TGrid grid)
+void mooveMonster (TGrid grid, int x,int y,int mi, int mj, int i, int j)
 {
-    SDL_Event event;
+    //int i,j;
 
-    int i,j;
+    convertTo_IJ(x,y,i,j);
 
-
-    while (SDL_PollEvent(&event))
+    if (i < mi && j==mj) //colonne situé au-dessus du monstre
     {
-        if (event.type == SDL_MOUSEBUTTONDOWN)
+        while (grid[mi-1][mj]==0)
         {
-            int x=event.button.x;
-            int y=event.button.y;
+            grid[mi-1][mj]=1;
+            grid[mi][mj]=0;
+            i--;
+        }
 
-            convertTo_IJ(x,y,i,j);
-
-            if(grid[i][j]==1) //vérification existence d'un monstre dans la case
-            {
-                int mi=i;
-                int mj=j;
-
-                while (SDL_PollEvent(&event))
-                {
-                    if (event.type == SDL_MOUSEBUTTONDOWN)
-                    {
-                        int x=event.button.x;
-                        int y=event.button.y;
-
-                        convertTo_IJ(x,y,i,j);
-
-                        if (i < mi && j==mj) //colonne situé au-dessus du monstre
-                        {
-                            while (grid[mi-1][mj]==0)
-                            {
-                                grid[mi-1][mj]=1;
-                                grid[mi][mj]=0;
-                                i--;
-                            }
-
-                        }
-                        if (i == mi && j>mj) //ligne situé à droite du monstre
-                        {
-                            while (grid[mi][mj+1] == 0)
-                            {
-                                grid[mi][mj+1]=1;
-                                grid[mi][mj]=0;
-                                j++;
-                            }
-                        }
-                        if (i > mi && j == mj) //colonne situé en-dessous du monstre
-                        {
-                            while (grid[mi+1][mj] == 0)
-                            {
-                                grid[mi+1][mj]=1;
-                                grid[mi][mj]=0;
-                                i++;
-                            }
-                        }
-                        if (i == mi && j<mj) //ligne situé à droite du monstre
-                        {
-                            while (grid[mi][mj-1] == 0)
-                            {
-                                grid[mi][mj-1]=1;
-                                grid[mi][mj]=0;
-                                j++;
-                            }
-                        }
-                    }
-                }
-            }
+    }
+    if (i == mi && j>mj) //ligne situé à droite du monstre
+    {
+        while (grid[mi][mj+1] == 0)
+        {
+            grid[mi][mj+1]=1;
+            grid[mi][mj]=0;
+            j++;
         }
     }
-
+    if (i > mi && j == mj) //colonne situé en-dessous du monstre
+    {
+        while (grid[mi+1][mj] == 0)
+        {
+            grid[mi+1][mj]=1;
+            grid[mi][mj]=0;
+            i++;
+        }
+    }
+    if (i == mi && j<mj) //ligne situé à droite du monstre
+    {
+        while (grid[mi][mj-1] == 0)
+        {
+            grid[mi][mj-1]=1;
+            grid[mi][mj]=0;
+            j++;
+        }
+    }
 }
 //----------------------------------------------------------------------------------
 

@@ -25,6 +25,9 @@ int main()
     bool quit=false;
     bool play=false;
     bool level=false;
+    int i,j;
+    int mi=i;
+    int mj=j;
 
     TGrid grid;
 
@@ -34,13 +37,14 @@ int main()
     tabImg[1]=loadImage("snowman.png");
     tabImg[2]=loadImage("gift.png");
     tabImg[3]=loadImage("fit.png");
-//    tabImg[4]=loadImageWithColorKey("sprite.bmp",255,255,255);
-//    tabImg[5]=loadImageWithColorKey("sprite.bmp",255,255,255);
-//    tabImg[6]=loadImageWithColorKey("sprite.bmp",255,255,255);
-//    tabImg[7]=loadImageWithColorKey("sprite.bmp",255,255,255);
+    //    tabImg[4]=loadImageWithColorKey("sprite.bmp",255,255,255);
+    //    tabImg[5]=loadImageWithColorKey("sprite.bmp",255,255,255);
+    //    tabImg[6]=loadImageWithColorKey("sprite.bmp",255,255,255);
+    //    tabImg[7]=loadImageWithColorKey("sprite.bmp",255,255,255);
 
     while(!quit)
     {
+        convertTo_IJ(452,326,i,j);
 
         while(!play && !quit)
         {
@@ -52,8 +56,6 @@ int main()
             initLevel1(grid);
             showLevel(screen,background,grid,tabImg);
 
-            mooveMonster(grid);
-
             int x=event.button.x;
             int y=event.button.y;
 
@@ -64,14 +66,32 @@ int main()
                 {
                     quit = true;
                 }
+
+                if (event.button.button==SDL_BUTTON_LEFT)
+                {
+                    convertTo_IJ(x,y,i,j);
+
+                    if(grid[i][j]==1) //vérification existence d'un monstre dans la case
+                    {
+                        if (event.button.button==SDL_BUTTON_LEFT)
+                        {
+                            mi=i;
+                            mj=j;
+                            convertTo_IJ(x,y,i,j);
+                            mooveMonster(grid,x,y,mi,mj,i,j);
+                        }
+                    }
+
+
+                }
             }
         }
 
     }
-    SDL_FreeSurface(screen);
+        SDL_FreeSurface(screen);
 
-    SDL_Quit();
+        SDL_Quit();
 
-    return EXIT_SUCCESS;
-}
+        return EXIT_SUCCESS;
+    }
 
