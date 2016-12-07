@@ -25,6 +25,9 @@ int main()
     bool quit=false;
     bool play=false;
     bool level=false;
+    bool game=false;
+    bool secondeClic=false;
+
     int i,j;
     int mi=i;
     int mj=j;
@@ -48,50 +51,75 @@ int main()
 
         while(!play && !quit)
         {
-            inithome(home,screen,play,level,quit);
+            inithome(home,screen,play,level);
         }
 
         while(!level && !quit)
         {
-            initLevel1(grid);
+            if (!game)
+            {
+                initLevel1(grid);
+                game=true;
+            }
+
+            showGrid(grid);
+
             showLevel(screen,background,grid,tabImg);
 
-            int x=event.button.x;
-            int y=event.button.y;
 
+//            mi=3;
+//            mj=1;
+//            mooveMonster(grid,mi,mj,2,1);
+
+            showGrid(grid);
+
+            showLevel(screen,background,grid,tabImg);
 
             while (SDL_PollEvent(&event))
             {
+                int x=event.button.x;
+                int y=event.button.y;
+
+
+                if (event.button.button==SDL_BUTTON_LEFT && secondeClic==false)
+                {
+
+                    cout << "MONSTRE" << endl;
+                    convertTo_IJ(x,y,i,j);
+
+
+                    if(grid[i][j]==1) //vérification existence d'un monstre dans la case
+                    {
+
+                        mi=i;
+                        mj=j;
+                        secondeClic=true;
+
+                    }
+
+                }
+
+                if (event.button.button==SDL_BUTTON_LEFT && (secondeClic==true))
+                {
+
+                    convertTo_IJ(x,y,i,j);
+                    mooveMonster(grid,mi,mj,2,1);
+                }
+
+
                 if( event.type == SDL_QUIT )
                 {
                     quit = true;
                 }
-
-                if (event.button.button==SDL_BUTTON_LEFT)
-                {
-                    convertTo_IJ(x,y,i,j);
-
-                    if(grid[i][j]==1) //vérification existence d'un monstre dans la case
-                    {
-                        if (event.button.button==SDL_BUTTON_LEFT)
-                        {
-                            mi=i;
-                            mj=j;
-                            convertTo_IJ(x,y,i,j);
-                            mooveMonster(grid,x,y,mi,mj,i,j);
-                        }
-                    }
-
-
-                }
             }
+
         }
 
     }
-        SDL_FreeSurface(screen);
+    SDL_FreeSurface(screen);
 
-        SDL_Quit();
+    SDL_Quit();
 
-        return EXIT_SUCCESS;
-    }
+    return EXIT_SUCCESS;
+}
 

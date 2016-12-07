@@ -51,11 +51,11 @@ using namespace std;
 
 
 //---------------------------------A FAIRE !!! -------------------------------------
-void mooveMonster (TGrid grid, int x,int y,int mi, int mj, int i, int j)
+void mooveMonster (TGrid &grid,int &mi, int &mj, int i, int j)
 {
     //int i,j;
 
-    convertTo_IJ(x,y,i,j);
+    //convertTo_IJ(x,y,i,j);
 
     if (i < mi && j==mj) //colonne situé au-dessus du monstre
     {
@@ -63,36 +63,40 @@ void mooveMonster (TGrid grid, int x,int y,int mi, int mj, int i, int j)
         {
             grid[mi-1][mj]=1;
             grid[mi][mj]=0;
-            i--;
+            mi--;
         }
 
+        grid[mi+1][mj]=0;
     }
-    if (i == mi && j>mj) //ligne situé à droite du monstre
+    else if (i == mi && j>mj) //ligne situé à droite du monstre
     {
         while (grid[mi][mj+1] == 0)
         {
             grid[mi][mj+1]=1;
             grid[mi][mj]=0;
-            j++;
+            mj++;
         }
+        grid[mi][mj]=0;
     }
-    if (i > mi && j == mj) //colonne situé en-dessous du monstre
+    else if (i > mi && j == mj) //colonne situé en-dessous du monstre
     {
         while (grid[mi+1][mj] == 0)
         {
             grid[mi+1][mj]=1;
             grid[mi][mj]=0;
-            i++;
+            mi++;
         }
+        grid[mi][mj]=0;
     }
-    if (i == mi && j<mj) //ligne situé à droite du monstre
+    else if (i == mi && j<mj) //ligne situé à droite du monstre
     {
         while (grid[mi][mj-1] == 0)
         {
             grid[mi][mj-1]=1;
             grid[mi][mj]=0;
-            j++;
+            mj++;
         }
+        grid[mi][mj]=0;
     }
 }
 //----------------------------------------------------------------------------------

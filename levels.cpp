@@ -20,7 +20,7 @@ void initLevel1 (TGrid &grid)
 //    grid[6][0]=7;
 //    grid[6][4]=8;
 
-    showGrid(grid);
+
 
 }
 

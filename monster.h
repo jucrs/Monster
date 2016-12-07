@@ -55,6 +55,6 @@ void showMonsterSleep(Monster &m, SDL_Surface *screen, int i, int j);
 *********************** Sorties *****************************
 * la grille                                                 *
 ************************************************************/
-void mooveMonster (TGrid grid, int x, int y, int mi, int mj, int i, int j);
+void mooveMonster (TGrid &grid, int &mi, int &mj, int i, int j);
 #endif // MONSTER
 
