@@ -27,6 +27,7 @@ int main()
     bool level=false;
     bool game=false;
     bool secondeClic=false;
+    bool firstClic=false;
 
     int i,j;
     int mi=i;
@@ -47,7 +48,6 @@ int main()
 
     while(!quit)
     {
-        convertTo_IJ(452,326,i,j);
 
         while(!play && !quit)
         {
@@ -66,54 +66,45 @@ int main()
 
             showLevel(screen,background,grid,tabImg);
 
-
-//            mi=3;
-//            mj=1;
-//            mooveMonster(grid,mi,mj,2,1);
-
-            showGrid(grid);
-
-            showLevel(screen,background,grid,tabImg);
+            if (firstClic==true && secondeClic==true)
+            {
+                mooveMonster(grid,mi,mj,i,j);
+                firstClic=false;
+                secondeClic=false;
+            }
 
             while (SDL_PollEvent(&event))
             {
                 int x=event.button.x;
                 int y=event.button.y;
 
-
                 if (event.button.button==SDL_BUTTON_LEFT && secondeClic==false)
                 {
-
                     cout << "MONSTRE" << endl;
                     convertTo_IJ(x,y,i,j);
 
-
                     if(grid[i][j]==1) //vérification existence d'un monstre dans la case
                     {
-
                         mi=i;
                         mj=j;
-                        secondeClic=true;
-
+                        firstClic=true;
                     }
-
                 }
-
-                if (event.button.button==SDL_BUTTON_LEFT && (secondeClic==true))
+                else if (event.button.button==SDL_BUTTON_LEFT && (firstClic==true))
                 {
 
                     convertTo_IJ(x,y,i,j);
-                    mooveMonster(grid,mi,mj,2,1);
+                    secondeClic=true;
                 }
-
-
-                if( event.type == SDL_QUIT )
+                else if( event.type == SDL_QUIT )
                 {
                     quit = true;
                 }
             }
 
         }
+
+
 
     }
     SDL_FreeSurface(screen);
