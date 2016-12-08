@@ -32,46 +32,44 @@ int main()
     int i,j;
     int mi=i;
     int mj=j;
+    int numLevel=1;
 
     TGrid grid;
-
     TTabImg tabImg;
 
-    tabImg[0]=loadImage("monster.png");
-    tabImg[1]=loadImage("snowman.png");
-    tabImg[2]=loadImage("gift.png");
-    tabImg[3]=loadImage("fit.png");
-    //    tabImg[4]=loadImageWithColorKey("sprite.bmp",255,255,255);
-    //    tabImg[5]=loadImageWithColorKey("sprite.bmp",255,255,255);
-    //    tabImg[6]=loadImageWithColorKey("sprite.bmp",255,255,255);
-    //    tabImg[7]=loadImageWithColorKey("sprite.bmp",255,255,255);
+    //Remplissage du tableau d'images
+    fillingTab(tabImg);
 
     while(!quit)
     {
 
         while(!play && !quit)
         {
+            //mise en place du menu
             inithome(home,screen,play,level);
         }
-
-        while(!level && !quit)
+        //boucle de jeu
+        while(!game && !quit)
         {
-            if (!game)
+            //si nouveau niveau
+            if (!level)
             {
-                initLevel1(grid);
-                game=true;
+                //choix du design du niveau en fonction de celui-ci
+                switch (numLevel)
+                {
+                case 1:
+                    initLevel1(grid);
+                    level=true;
+                    break;
+                default:
+                    break;
+                }
             }
 
             showGrid(grid);
 
+            //affichage du niveau
             showLevel(screen,background,grid,tabImg);
-
-            if (firstClic==true && secondeClic==true)
-            {
-                mooveMonster(grid,mi,mj,i,j);
-                firstClic=false;
-                secondeClic=false;
-            }
 
             while (SDL_PollEvent(&event))
             {
@@ -102,6 +100,16 @@ int main()
                 }
             }
 
+            if (firstClic==true && secondeClic==true)
+            {
+                mooveMonster(grid,mi,mj,i,j);
+                mooveObstacle(grid,i,j);
+                firstClic=false;
+                secondeClic=false;
+            }
+
+            //vérification si le niveau est fini
+            finishLevel(grid,level,numLevel);
         }
 
 

@@ -14,6 +14,8 @@ const int SCREEN_WIDTH=700;
 const int SCREEN_HEIGHT=700;
 const int SCREEN_BPP=32;
 
+using namespace std;
+
 /****************** Nom de la fonction **********************
 * loadImageWithColorKey                                     *
 ******************** Auteur , Dates *************************
@@ -25,7 +27,7 @@ const int SCREEN_BPP=32;
 *********************** Sorties *****************************
 * l'image avec la couleur enlevé                            *
 ************************************************************/
-SDL_Surface *loadImageWithColorKey(std::string filename, int r, int g, int b);
+SDL_Surface *loadImageWithColorKey(string filename, int r, int g, int b);
 
 /****************** Nom de la fonction **********************
 * loadImage                                                 *
@@ -38,7 +40,7 @@ SDL_Surface *loadImageWithColorKey(std::string filename, int r, int g, int b);
 *********************** Sorties *****************************
 * Vous détaillez ici ce que renvoie la fonction             *
 ************************************************************/
-SDL_Surface *loadImage(std::string filename);
+SDL_Surface *loadImage(string filename);
 
 /****************** Nom de la fonction **********************
 * applySurface                                              *
@@ -52,6 +54,8 @@ SDL_Surface *loadImage(std::string filename);
 * L'écran modifié et le rectangle de lectur s'il y en a un  *
 ************************************************************/
 void applySurface(int x, int y, SDL_Surface *source, SDL_Surface *destination, SDL_Rect *clip);
+
+
 
 #endif // FUNCTIONS
 

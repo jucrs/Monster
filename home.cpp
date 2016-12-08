@@ -1,6 +1,6 @@
 #include "home.h"
 
-void inithome(SDL_Surface *home, SDL_Surface *screen, bool &play, bool &level)
+void inithome(SDL_Surface *home, SDL_Surface *screen, bool &play, bool &game)
 {
 
     applySurface(0,0,home,screen,NULL);
@@ -20,9 +20,10 @@ void inithome(SDL_Surface *home, SDL_Surface *screen, bool &play, bool &level)
                 if (event.button.button==SDL_BUTTON_LEFT)
                 {
                     play=true;
-                    level=false;
+                    game=false;
                 }
         }
 
     }
 }
+

@@ -3,10 +3,6 @@
 #include "obstacle.h"
 #include "monster.h"
 
-using namespace std;
-
-
-
 void initLevel1 (TGrid &grid)
 {
 
@@ -20,15 +16,10 @@ void initLevel1 (TGrid &grid)
 //    grid[6][0]=7;
 //    grid[6][4]=8;
 
-
-
 }
 
 void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid, TTabImg tabImg)
 {
-
-    Obstacle su,sd,sl,sr;
-
     applySurface(0,0,background,screen,NULL);
     int x,y;
 
@@ -60,25 +51,21 @@ void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid, TTabIm
 
             case 5: //Speed up
                 convertTo_Px(x,y,i,j);
-                initSpeedUp(su);
                 applySurface(x,y,tabImg[4],screen,NULL);
                  break;
 
             case 6: //Speed Down
                 convertTo_Px(x,y,i,j);
-                initSpeedDown(sd);
                 applySurface(x,y,tabImg[5],screen,NULL);
                 break;
 
             case 7: //Speed left
                 convertTo_Px(x,y,i,j);
-                initSpeedLeft(sl);
                 applySurface(x,y,tabImg[6],screen,NULL);
                 break;
 
             case 8: //Speed Right
                 convertTo_Px(x,y,i,j);
-                initSpeedRight(sr);
                 applySurface(x,y,tabImg[7],screen,NULL);
                 break;
 
@@ -93,6 +80,17 @@ void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid, TTabIm
 }
 
 
+void fillingTab (TTabImg &tabImg)
+{
+    tabImg[0]=loadImageWithColorKey("monster.png",0,0,255);
+    tabImg[1]=loadImageWithColorKey("snowman.png",0,0,255);
+    tabImg[2]=loadImageWithColorKey("gift.png",0,0,255);
+    tabImg[3]=loadImageWithColorKey("fit.png",0,0,255);
+    //    tabImg[4]=loadImageWithColorKey("sprite.bmp",0,0,255);
+    //    tabImg[5]=loadImageWithColorKey("sprite.bmp",0,0,255);
+    //    tabImg[6]=loadImageWithColorKey("sprite.bmp",0,0,255);
+    //    tabImg[7]=loadImageWithColorKey("sprite.bmp",0,0,255);
+}
 
 
 

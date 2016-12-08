@@ -8,6 +8,7 @@
 
 using TTabImg = array<SDL_Surface*,8>;
 
+
 /****************** Nom de la fonction **********************
 * initlevel1                                                *
 ******************** Auteur , Dates *************************
@@ -34,7 +35,6 @@ void initLevel1 (TGrid &grid);
 ************************************************************/
 void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid, TTabImg tabImg);
 
-
-bool caseFree (TGrid grid, int i, int j);
+void fillingTab (TTabImg &tabImg);
 #endif // LEVELS
 

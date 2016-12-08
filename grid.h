@@ -2,8 +2,6 @@
 #define GRID_H
 #include "function.h"
 
-using namespace std;
-
 //Constantes
 const int BORDER_X = 175;
 const int BORDER_Y = 35;
@@ -13,8 +11,8 @@ const int CASE_Y = 70;
 /**************** Définition de la grille *******************
 * 1=monster                                                 *
 * 2=sleeping monster                                        *
-* 3=ice                                                     *
-* 4=book                                                    *
+* 3=gift                                                    *
+* 4=fit                                                     *
 * 5=speed down                                              *
 * 6=speed up                                                *
 * 7=speed right                                             *
@@ -77,7 +75,5 @@ void convertTo_Px (int &x, int &y, int i, int j);
 * Aucune                                                    *
 ************************************************************/
 void showGrid(TGrid grid);
-
-void placeElem (SDL_Surface *screen, TGrid grid, int x, int y);
 
 #endif // GRID_H
