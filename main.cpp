@@ -3,6 +3,7 @@
 #include "levels.h"
 #include "home.h"
 #include "grid.h"
+#include "event.h"
 
 using namespace std;
 
@@ -20,18 +21,15 @@ int main()
     SDL_Surface *home;
     home=loadImage("home.png");
 
-    SDL_Event event;
+    //SDL_Event event;
 
     bool quit=false;
     bool play=false;
     bool level=false;
     bool game=false;
-    bool secondeClic=false;
-    bool firstClic=false;
+    bool clic=false;
 
-    int i,j;
-    int mi=i;
-    int mj=j;
+
     int numLevel=1;
 
     TGrid grid;
@@ -39,6 +37,7 @@ int main()
 
     //Remplissage du tableau d'images
     fillingTab(tabImg);
+    int x, y;
 
     while(!quit)
     {
@@ -66,50 +65,49 @@ int main()
                 }
             }
 
-            showGrid(grid);
+            //showGrid(grid);
 
             //affichage du niveau
             showLevel(screen,background,grid,tabImg);
 
-            while (SDL_PollEvent(&event))
-            {
-                int x=event.button.x;
-                int y=event.button.y;
+            Event(clic,quit,grid,x,y);
+            //                int x=event.button.x;
+            //                int y=event.button.y;
 
-                if (event.button.button==SDL_BUTTON_LEFT && secondeClic==false)
-                {
-                    cout << "MONSTRE" << endl;
-                    convertTo_IJ(x,y,i,j);
+//                if (event.button.button==SDL_BUTTON_LEFT && secondeClic==false)
+//                {
+//                    cout << "MONSTRE" << endl;
+//                    convertTo_IJ(x,y,i,j);
 
-                    if(grid[i][j]==1) //vérification existence d'un monstre dans la case
-                    {
-                        mi=i;
-                        mj=j;
-                        firstClic=true;
-                    }
-                }
-                else if (event.button.button==SDL_BUTTON_LEFT && (firstClic==true))
-                {
+//                    if(grid[i][j]==1) //vérification existence d'un monstre dans la case
+//                    {
+//                        mi=i;
+//                        mj=j;
+//                        firstClic=true;
+//                    }
+//                }
+//                else if (event.button.button==SDL_BUTTON_LEFT && (firstClic==true))
+//                {
 
-                    convertTo_IJ(x,y,i,j);
-                    secondeClic=true;
-                }
-                else if( event.type == SDL_QUIT )
-                {
-                    quit = true;
-                }
-            }
+//                    convertTo_IJ(x,y,i,j);
+//                    secondeClic=true;
+//                }
+//                else if( event.type == SDL_QUIT )
+//                {
+//                    quit = true;
+//                }
+//            }
 
-            if (firstClic==true && secondeClic==true)
-            {
-                mooveMonster(grid,mi,mj,i,j);
-                mooveObstacle(grid,i,j);
-                firstClic=false;
-                secondeClic=false;
-            }
+//            if (firstClic==true && secondeClic==true)
+//            {
+//                mooveMonster(grid,mi,mj,i,j);
+//                mooveObstacle(grid,i,j);
+//                firstClic=false;
+//                secondeClic=false;
+//            }
 
-            //vérification si le niveau est fini
-            finishLevel(grid,level,numLevel);
+//            //vérification si le niveau est fini
+//            finishLevel(grid,level,numLevel);
         }
 
 

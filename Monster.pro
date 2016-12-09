@@ -15,7 +15,8 @@ SOURCES += main.cpp \
     grid.cpp \
     home.cpp \
     levels.cpp \
-    obstacle.cpp
+    obstacle.cpp \
+    event.cpp
 
 HEADERS += \
     monster.h \
@@ -23,5 +24,6 @@ HEADERS += \
     grid.h \
     home.h \
     levels.h \
-    obstacle.h
+    obstacle.h \
+    event.h
 

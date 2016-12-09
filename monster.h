@@ -17,8 +17,8 @@ const int sizeMh=60;
 *********************** Sorties *****************************
 * la grille                                                 *
 ************************************************************/
-void mooveMonster (TGrid &grid, int &mi, int &mj, int &i, int &j);
+void moveMonster (TGrid &grid, int &mi, int &mj, int &i, int &j);
 
-void finishLevel(TGrid grid, bool &level, int numLevel);
+void finishLevel(TGrid grid, bool &level, int &numLevel);
 #endif // MONSTER
 
