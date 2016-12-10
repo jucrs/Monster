@@ -3,6 +3,6 @@
 #include "function.h"
 #include "grid.h"
 
-void mooveObstacle (TGrid &grid, int i, int j);
+void SwitchObstacle (TGrid &grid, int i, int j);
 #endif // OBSTACLE_H
 

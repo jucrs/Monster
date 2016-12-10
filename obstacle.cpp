@@ -1,6 +1,7 @@
 #include "obstacle.h"
 
-void mooveObstacle (TGrid &grid,int i, int j)
+
+void SwitchObstacle (TGrid &grid,int i, int j)
 {
     switch (grid[i][j])
     {

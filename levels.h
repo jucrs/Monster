@@ -35,6 +35,9 @@ void initLevel1 (TGrid &grid);
 ************************************************************/
 void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid, TTabImg tabImg);
 
+void initLevel2 (TGrid &grid);
+void initLevel3 (TGrid &grid);
+
 void fillingTab (TTabImg &tabImg);
 #endif // LEVELS
 

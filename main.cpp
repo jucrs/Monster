@@ -51,8 +51,9 @@ int main()
         while(!game && !quit)
         {
             //si nouveau niveau
-            if (!level)
+            if (!level && numLevel<=3)
             {
+
                 //choix du design du niveau en fonction de celui-ci
                 switch (numLevel)
                 {
@@ -60,54 +61,33 @@ int main()
                     initLevel1(grid);
                     level=true;
                     break;
-                default:
+
+                case 2:
+
+                    initLevel2(grid);
+                    level=true;
                     break;
+
+                case 3:
+                    initLevel3(grid);
+                    level=true;
+
                 }
             }
 
-            //showGrid(grid);
+            if(numLevel>3)
+            {
+                quit=true;
+            }
+
 
             //affichage du niveau
             showLevel(screen,background,grid,tabImg);
 
             Event(clic,quit,grid,x,y);
-            //                int x=event.button.x;
-            //                int y=event.button.y;
 
-//                if (event.button.button==SDL_BUTTON_LEFT && secondeClic==false)
-//                {
-//                    cout << "MONSTRE" << endl;
-//                    convertTo_IJ(x,y,i,j);
+            finishLevel(grid,level,numLevel);
 
-//                    if(grid[i][j]==1) //vérification existence d'un monstre dans la case
-//                    {
-//                        mi=i;
-//                        mj=j;
-//                        firstClic=true;
-//                    }
-//                }
-//                else if (event.button.button==SDL_BUTTON_LEFT && (firstClic==true))
-//                {
-
-//                    convertTo_IJ(x,y,i,j);
-//                    secondeClic=true;
-//                }
-//                else if( event.type == SDL_QUIT )
-//                {
-//                    quit = true;
-//                }
-//            }
-
-//            if (firstClic==true && secondeClic==true)
-//            {
-//                mooveMonster(grid,mi,mj,i,j);
-//                mooveObstacle(grid,i,j);
-//                firstClic=false;
-//                secondeClic=false;
-//            }
-
-//            //vérification si le niveau est fini
-//            finishLevel(grid,level,numLevel);
         }
 
 
