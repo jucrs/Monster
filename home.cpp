@@ -1,6 +1,6 @@
 #include "home.h"
 
-void inithome(SDL_Surface *home, SDL_Surface *screen, bool &play, bool &game)
+void inithome(SDL_Surface *home, SDL_Surface *screen, bool &play, bool &game, bool &quit)
 {
 
     applySurface(0,0,home,screen,NULL);
@@ -13,15 +13,27 @@ void inithome(SDL_Surface *home, SDL_Surface *screen, bool &play, bool &game)
 
     while (SDL_PollEvent(&event))
     {
-
-        if ((x>455) && (x<480) && (y>410) && (y<485))
+        switch (event.type)
         {
 
-                if (event.button.button==SDL_BUTTON_LEFT)
+        case SDL_MOUSEBUTTONDOWN:
+
+            if ((x>455) && (x<480) && (y>410) && (y<485))
+            {
+
                 {
                     play=true;
                     game=false;
                 }
+            }
+            break;
+
+        case SDL_QUIT:
+
+            quit=true;
+
+            break;
+
         }
 
     }

@@ -45,7 +45,7 @@ int main()
         while(!play && !quit)
         {
             //mise en place du menu
-            inithome(home,screen,play,level);
+            inithome(home,screen,play,level,quit);
         }
         //boucle de jeu
         while(!game && !quit)
@@ -64,29 +64,41 @@ int main()
 
                 case 2:
 
+                    applySurface(0,0,tabImg[8],screen,NULL);
+                    SDL_Flip(screen);
+                    SDL_Delay(2000);
                     initLevel2(grid);
                     level=true;
                     break;
 
                 case 3:
+
+                    applySurface(0,0,tabImg[8],screen,NULL);
+                    SDL_Flip(screen);
+                    SDL_Delay(2000);
                     initLevel3(grid);
                     level=true;
 
                 }
             }
 
-            if(numLevel>3)
-            {
-                quit=true;
-            }
 
+
+            Event(clic,quit,grid,x,y,level);
 
             //affichage du niveau
             showLevel(screen,background,grid,tabImg);
 
-            Event(clic,quit,grid,x,y);
 
             finishLevel(grid,level,numLevel);
+
+            if(numLevel>3)
+            {
+                applySurface(0,0,tabImg[9],screen,NULL);
+                SDL_Flip(screen);
+                SDL_Delay(2000);
+                quit=true;
+            }
 
         }
 

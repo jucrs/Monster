@@ -2,11 +2,11 @@
 #include "levels.h"
 #include "obstacle.h"
 
-void moveMonster (TGrid &grid,int &mi, int &mj, int &i, int &j)
+void moveMonster (TGrid &grid,int &mi, int &mj, int &i, int &j,bool &level)
 {
     if (i < mi && j==mj) //colonne situé au-dessus du monstre
     {
-        while (grid[mi-1][mj]==0 && (mi-1)>= 0)
+        while (grid[mi-1][mj]==0)
         {
             grid[mi][mj]=0;
             grid[mi-1][mj]=1;
@@ -16,10 +16,16 @@ void moveMonster (TGrid &grid,int &mi, int &mj, int &i, int &j)
         }
         SwitchObstacle(grid,mi-1,mj);
 
+        if (mi-1<0)
+        {
+            cout << "perdu"<< endl;
+            level=false;
+        }
+
     }
     else if (i == mi && j>mj) //ligne situé à droite du monstre
     {
-        while (grid[mi][mj+1] == 0 && (mj+1)<5)
+        while (grid[mi][mj+1] == 0)
         {
             grid[mi][mj]=0;
             grid[mi][mj+1]=1;
@@ -27,10 +33,16 @@ void moveMonster (TGrid &grid,int &mi, int &mj, int &i, int &j)
             mj++;
         }
         SwitchObstacle(grid,mi,mj+1);
+
+        if (mj+1>SIZE_W)
+        {
+            cout << "perdu"<< endl;
+            level=false;
+        }
     }
     else if (i > mi && j == mj) //colonne situé en-dessous du monstre
     {
-        while (grid[mi+1][mj] == 0 && (mi+1)<9)
+        while (grid[mi+1][mj] == 0)
         {
             grid[mi][mj]=0;
             grid[mi+1][mj]=1;
@@ -38,10 +50,16 @@ void moveMonster (TGrid &grid,int &mi, int &mj, int &i, int &j)
             mi++;
         }
         SwitchObstacle(grid,mi+1,mj);
+
+        if (mi+1>=SIZE_H)
+        {
+            cout << "perdu"<< endl;
+            level=false;
+        }
     }
     else if (i == mi && j<mj) //ligne situé à gauche du monstre
     {
-        while (grid[mi][mj-1] == 0 && (mj-1)>=0)
+        while (grid[mi][mj-1] == 0)
         {
             grid[mi][mj]=0;
             grid[mi][mj-1]=1;
@@ -49,27 +67,14 @@ void moveMonster (TGrid &grid,int &mi, int &mj, int &i, int &j)
             mj--;
         }
         SwitchObstacle(grid,mi,mj-1);
-    }
-}
 
-void finishLevel(TGrid grid,bool &level,int &numLevel)
-{
-    int nbMonster;
-    for (int i=0;i<SIZE_H;i++)
-    {
-        for (int j=0;j<SIZE_W;j++)
+        if (mj-1<0)
         {
-            if (grid[i][j]==2)
-            {
-                nbMonster+=1;
-            }
+            cout << "perdu"<< endl;
+            level=false;
         }
     }
-    if (nbMonster==0)
-    {
-        level=false;
-        numLevel+=1;
-    }
-
 }
+
+
 

@@ -3,7 +3,7 @@
 #include "monster.h"
 
 
-void Event (bool &clic, bool &quit, TGrid &grid, int &x,int &y)
+void Event (bool &clic, bool &quit, TGrid &grid, int &x,int &y, bool &level)
 {
     SDL_Event event;
     int i,j;
@@ -45,7 +45,7 @@ void Event (bool &clic, bool &quit, TGrid &grid, int &x,int &y)
                 if (clic)
                 {
                     convertTo_IJ(event.button.x,event.button.y,i,j);
-                    moveMonster(grid,x,y,i,j);
+                    moveMonster(grid,x,y,i,j,level);
                     clic = false;
                 }
                 break;

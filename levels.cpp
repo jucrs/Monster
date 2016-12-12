@@ -25,7 +25,7 @@ void initLevel3 (TGrid &grid)
     initGrid(grid);
     grid[0][0]=1;
     grid[1][0]=3;
-    grid[0][1]=3;
+    grid[0][1]=4;
     grid[3][0]=4;
     grid[8][3]=4;
     grid[2][4]=4;
@@ -98,14 +98,38 @@ void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid, TTabIm
 
 void fillingTab (TTabImg &tabImg)
 {
-    tabImg[0]=loadImageWithColorKey("monster.png",0,0,255);
-    tabImg[1]=loadImageWithColorKey("snowman.png",0,0,255);
-    tabImg[2]=loadImageWithColorKey("gift.png",0,0,255);
-    tabImg[3]=loadImageWithColorKey("fit.png",0,0,255);
+    tabImg[0]=loadImageWithColorKey("monster.png",0,255,0);
+    tabImg[1]=loadImageWithColorKey("snowman.png",0,255,0);
+    tabImg[2]=loadImageWithColorKey("gift.png",0,255,0);
+    tabImg[3]=loadImageWithColorKey("fit.png",0,255,0);
 //    tabImg[4]=loadImageWithColorKey("sprite.bmp",0,0,255);
 //    tabImg[5]=loadImageWithColorKey("sprite.bmp",0,0,255);
 //    tabImg[6]=loadImageWithColorKey("sprite.bmp",0,0,255);
 //    tabImg[7]=loadImageWithColorKey("sprite.bmp",0,0,255);
+    tabImg[8]=loadImage("finishlevel.png");
+    tabImg[9]=loadImage("finishgame.png");
+}
+
+void finishLevel(TGrid grid,bool &level,int &numLevel)
+{
+    int nbMonster;
+    for (int i=0;i<SIZE_H;i++)
+    {
+        for (int j=0;j<SIZE_W;j++)
+        {
+            if (grid[i][j]==2)
+            {
+                nbMonster+=1;
+            }
+        }
+    }
+    if (nbMonster==0)
+    {
+        SDL_Delay(1000);
+        level=false;
+        numLevel+=1;
+    }
+
 }
 
 
