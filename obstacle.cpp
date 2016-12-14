@@ -55,7 +55,7 @@ void switchObstacle (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, i
         }
 
         cout << "bas" << endl;
-        //switchObstacle(screen,grid,tabImg,mi,mj,mi+1,mj,nbLife,level,game);
+        switchObstacle(screen,grid,tabImg,mi,mj,mi+1,mj,nbLife,level,game);
 
         break;
 
@@ -77,7 +77,7 @@ void switchObstacle (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, i
 
         cout << "haut" << endl;
 
-       // switchObstacle(screen,grid,tabImg,mi,mj,mi-1,mj,nbLife,level,game);
+        switchObstacle(screen,grid,tabImg,mi,mj,mi-1,mj,nbLife,level,game);
 
 
         break;
@@ -101,7 +101,7 @@ void switchObstacle (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, i
         }
 
         cout << "droite" << endl;
-       // switchObstacle(screen,grid,tabImg,mi,mj,mi,mj+1,nbLife,level,game);
+        switchObstacle(screen,grid,tabImg,mi,mj,mi,mj+1,nbLife,level,game);
 
         break;
 
@@ -123,7 +123,7 @@ void switchObstacle (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, i
         }
 
         cout << "gauche" << endl;
-       // switchObstacle(screen,grid,tabImg,mi,mj,mi,mj-1,nbLife,level,game);
+        switchObstacle(screen,grid,tabImg,mi,mj,mi,mj-1,nbLife,level,game);
 
         break;
 

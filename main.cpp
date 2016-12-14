@@ -105,7 +105,7 @@ int main()
             }
 
             //Gestion des vies
-            Event(screen,tabImg,clic,quit,grid,x,y,nbLife,level,game);
+            Event(screen,tabImg,clic,quit,grid,x,y,nbLife,level,game, numLevel);
 
             //affichage du niveau
             showLevel(screen,background,grid,tabImg);
