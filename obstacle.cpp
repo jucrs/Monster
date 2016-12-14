@@ -72,8 +72,8 @@ void lost (SDL_Surface *screen, TTabImg &tabImg,int nbLife,bool &game, bool &lev
             game=true;
             break;
         }
-SDL_Flip(screen);
-    }
+
+    }SDL_Flip(screen);
 }
 
 
