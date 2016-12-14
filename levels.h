@@ -41,5 +41,7 @@ void initLevel6 (TGrid &grid);
 void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid, TTabImg tabImg);
 
 void fillingTab (TTabImg &tabImg);
+
+void restartGame (bool &level, bool &game, bool &play, int numLevel, int &nbLife);
 #endif // LEVELS
 

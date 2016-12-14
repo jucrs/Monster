@@ -144,23 +144,23 @@ void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid, TTabIm
         }
     }
 
-    SDL_Flip(screen);
+    //SDL_Flip(screen);
 }
 
-void finishLevel(SDL_Surface *screen,TTabImg &tabImg,TGrid grid,bool &level,int &numLevel)
+void finishLevel(SDL_Surface *screen,TTabImg &tabImg,TGrid grid,bool &level,int &numLevel, bool end)
 {
-    int nbMonster;
+    bool monster = false;
     for (int i=0;i<SIZE_H;i++)
     {
         for (int j=0;j<SIZE_W;j++)
         {
             if (grid[i][j]==2)
             {
-                nbMonster+=1;
+                monster=true;
             }
         }
     }
-    if (nbMonster==0)
+    if (!monster && !end)
     {
         applySurface(0,0,tabImg[8],screen,NULL);
         SDL_Flip(screen);
@@ -168,6 +168,16 @@ void finishLevel(SDL_Surface *screen,TTabImg &tabImg,TGrid grid,bool &level,int 
         numLevel+=1;
         level=false;
     }
+}
+
+void restartGame (bool &level, bool &game, bool &play, int numLevel, int &nbLife)
+{
+    nbLife=3;
+    numLevel=1;
+    level=false;
+    game=false;
+    play=false;
+
 }
 
 

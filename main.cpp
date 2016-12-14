@@ -31,6 +31,7 @@ int main()
     bool level=false;
     bool game=false;
     bool clic=false;
+    bool end=false;
 
 
     int numLevel=1;
@@ -52,6 +53,7 @@ int main()
             inithome(home,screen,home2,play,level,quit);
         }
         //boucle de jeu
+
         while(!game && !quit)
         {
             //si nouveau niveau
@@ -69,13 +71,13 @@ int main()
                     initLevel2(grid);
                     level=true;
                     break;
-/*
+
                 case 3:
                     initLevel3(grid);
                     level=true;
                     break;
 
-                case 4:
+ /*               case 4:
                     initLevel3(grid);
                     level=true;
                     break;
@@ -95,24 +97,31 @@ int main()
                     SDL_Flip(screen);
                     SDL_Delay(2000);
                     game=true;
-                    level=true;
+                    end=true;
+
                     break;
 
                 }
             }
+
+            //Gestion des vies
             Event(screen,tabImg,clic,quit,grid,x,y,nbLife,level,game);
 
             //affichage du niveau
             showLevel(screen,background,grid,tabImg);
             lost(screen,tabImg,nbLife,game,level);
-            finishLevel(screen,tabImg,grid,level,numLevel);
+            finishLevel(screen,tabImg,grid,level,numLevel,end);
 
+            //showGrid(grid);
+
+
+            SDL_Flip(screen);
         }
-        numLevel=0;
+
         SDL_FreeSurface(screen);
-        level=false;
-        game=false;
-        play=false;
+
+        restartGame(level,game,play,numLevel,nbLife);
+
     }
     SDL_FreeSurface(screen);
 
