@@ -36,11 +36,11 @@ void switchObstacle (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, i
         i--;
         moveMonster(screen,grid,tabImg,mi,mj,i,j,nbLife,level,game);
         break;
-    case 6:
+    case 6: //si l'obstacle est une flèche vers le haut
         break;
-    case 7:
+    case 7: //si l'obstacle est une flèche vers la droite
         break;
-    case 8:
+    case 8: //si l'obstacle est une flèche vers la gauche
         break;
     }
 }
@@ -53,15 +53,18 @@ void lost (SDL_Surface *screen, TTabImg &tabImg,int nbLife,bool &game, bool &lev
     case 1:
         applySurface(25,67,tabImg[11],screen,NULL);
         level=false;
+        break;
     case 2:
         applySurface(25,67,tabImg[11],screen,NULL);
         applySurface(25,123,tabImg[11],screen,NULL);
         level=false;
+        break;
     case 3:
         applySurface(25,67,tabImg[11],screen,NULL);
         applySurface(25,123,tabImg[11],screen,NULL);
         applySurface(25,169,tabImg[11],screen,NULL);
         level=false;
+        break;
     default:
         {
             applySurface(0,0,tabImg[10],screen,NULL);
@@ -69,7 +72,7 @@ void lost (SDL_Surface *screen, TTabImg &tabImg,int nbLife,bool &game, bool &lev
             game=true;
             break;
         }
-    SDL_Flip(screen);
+SDL_Flip(screen);
     }
 }
 

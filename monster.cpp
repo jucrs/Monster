@@ -14,13 +14,14 @@ void moveMonster (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, int 
             mi--;
             i--; 
         }
-        switchObstacle(screen,grid,tabImg,mi,mj,mi-1,mj,nbLife,level,game);
-
         if (mi-1<0)
         {
-            nbLife=-1;
+            nbLife-=1;
         }
-        lost(screen,tabImg,nbLife,game,level);
+
+        switchObstacle(screen,grid,tabImg,mi,mj,mi-1,mj,nbLife,level,game);
+
+
     }
     else if (i == mi && j>mj) //ligne situé à droite du monstre
     {

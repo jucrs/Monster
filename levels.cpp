@@ -143,10 +143,11 @@ void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid, TTabIm
             }
         }
     }
+
     SDL_Flip(screen);
 }
 
-void finishLevel(TGrid grid,bool &level,int &numLevel)
+void finishLevel(SDL_Surface *screen,TTabImg &tabImg,TGrid grid,bool &level,int &numLevel)
 {
     int nbMonster;
     for (int i=0;i<SIZE_H;i++)
@@ -161,10 +162,12 @@ void finishLevel(TGrid grid,bool &level,int &numLevel)
     }
     if (nbMonster==0)
     {
+        applySurface(0,0,tabImg[8],screen,NULL);
+        SDL_Flip(screen);
+        SDL_Delay(2000);
         numLevel+=1;
         level=false;
     }
-
 }
 
 

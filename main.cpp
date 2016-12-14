@@ -66,41 +66,26 @@ int main()
                     break;
 
                 case 2:
-                    applySurface(0,0,tabImg[8],screen,NULL);
-                    SDL_Flip(screen);
-                    SDL_Delay(2000);
                     initLevel2(grid);
                     level=true;
                     break;
 /*
                 case 3:
-                    applySurface(0,0,tabImg[8],screen,NULL);
-                    SDL_Flip(screen);
-                    SDL_Delay(2000);
                     initLevel3(grid);
                     level=true;
                     break;
 
                 case 4:
-                    applySurface(0,0,tabImg[8],screen,NULL);
-                    SDL_Flip(screen);
-                    SDL_Delay(2000);
                     initLevel3(grid);
                     level=true;
                     break;
 
                 case 5:
-                    applySurface(0,0,tabImg[8],screen,NULL);
-                    SDL_Flip(screen);
-                    SDL_Delay(2000);
                     initLevel3(grid);
                     level=true;
                     break;
 
                 case 6:
-                    applySurface(0,0,tabImg[8],screen,NULL);
-                    SDL_Flip(screen);
-                    SDL_Delay(2000);
                     initLevel3(grid);
                     level=true;
                     break;
@@ -119,8 +104,8 @@ int main()
 
             //affichage du niveau
             showLevel(screen,background,grid,tabImg);
-
-            finishLevel(grid,level,numLevel);
+            lost(screen,tabImg,nbLife,game,level);
+            finishLevel(screen,tabImg,grid,level,numLevel);
 
         }
         numLevel=0;
