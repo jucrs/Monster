@@ -20,6 +20,9 @@ int main()
     background=loadImage("background.png");
     SDL_Surface *home;
     home=loadImage("home.png");
+    SDL_Surface *home2;
+    home2=loadImage("home2.png");
+
 
     //SDL_Event event;
 
@@ -31,6 +34,7 @@ int main()
 
 
     int numLevel=1;
+    int nbLife=3;
 
     TGrid grid;
     TTabImg tabImg;
@@ -45,15 +49,14 @@ int main()
         while(!play && !quit)
         {
             //mise en place du menu
-            inithome(home,screen,play,level,quit);
+            inithome(home,screen,home2,play,level,quit);
         }
         //boucle de jeu
         while(!game && !quit)
         {
             //si nouveau niveau
-            if (!level && numLevel<=3)
+            if (!level)
             {
-
                 //choix du design du niveau en fonction de celui-ci
                 switch (numLevel)
                 {
@@ -63,47 +66,68 @@ int main()
                     break;
 
                 case 2:
-
                     applySurface(0,0,tabImg[8],screen,NULL);
                     SDL_Flip(screen);
                     SDL_Delay(2000);
                     initLevel2(grid);
                     level=true;
                     break;
-
+/*
                 case 3:
-
                     applySurface(0,0,tabImg[8],screen,NULL);
                     SDL_Flip(screen);
                     SDL_Delay(2000);
                     initLevel3(grid);
                     level=true;
+                    break;
+
+                case 4:
+                    applySurface(0,0,tabImg[8],screen,NULL);
+                    SDL_Flip(screen);
+                    SDL_Delay(2000);
+                    initLevel3(grid);
+                    level=true;
+                    break;
+
+                case 5:
+                    applySurface(0,0,tabImg[8],screen,NULL);
+                    SDL_Flip(screen);
+                    SDL_Delay(2000);
+                    initLevel3(grid);
+                    level=true;
+                    break;
+
+                case 6:
+                    applySurface(0,0,tabImg[8],screen,NULL);
+                    SDL_Flip(screen);
+                    SDL_Delay(2000);
+                    initLevel3(grid);
+                    level=true;
+                    break;
+*/
+                default:
+                    applySurface(0,0,tabImg[9],screen,NULL);
+                    SDL_Flip(screen);
+                    SDL_Delay(2000);
+                    game=true;
+                    level=true;
+                    break;
 
                 }
             }
-
-
-
-            Event(clic,quit,grid,x,y,level);
+            Event(screen,tabImg,clic,quit,grid,x,y,nbLife,level,game);
 
             //affichage du niveau
             showLevel(screen,background,grid,tabImg);
 
-
             finishLevel(grid,level,numLevel);
 
-            if(numLevel>3)
-            {
-                applySurface(0,0,tabImg[9],screen,NULL);
-                SDL_Flip(screen);
-                SDL_Delay(2000);
-                quit=true;
-            }
-
         }
-
-
-
+        numLevel=0;
+        SDL_FreeSurface(screen);
+        level=false;
+        game=false;
+        play=false;
     }
     SDL_FreeSurface(screen);
 

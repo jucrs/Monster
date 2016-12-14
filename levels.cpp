@@ -4,33 +4,84 @@
 
 void initLevel1 (TGrid &grid)
 {
-
     initGrid(grid);
-    grid[3][1]=1;
-    grid[3][4]=2;
-
+    grid[8][0]=1;
+    grid[2][1]=2;
+    grid[8][3]=2;
+    grid[3][4]=3;
+    grid[2][0]=4;
+    grid[8][1]=4;
+    grid[1][2]=2;
 }
 
 void initLevel2 (TGrid &grid)
 {
     initGrid(grid);
-    grid[2][1]=1;
-    grid[2][4]=4;
-    grid[8][3]=3;
+    grid[8][0]=1;
+    grid[3][0]=2;
     grid[7][2]=2;
+    grid[1][4]=2;
+    grid[4][0]=3;
+    grid[5][3]=3;
+    grid[0][2]=4;
+    grid[2][3]=4;
+    grid[7][4]=4;
 }
 
 void initLevel3 (TGrid &grid)
 {
     initGrid(grid);
-    grid[0][0]=1;
-    grid[1][0]=3;
-    grid[0][1]=4;
-    grid[3][0]=4;
-    grid[8][3]=4;
-    grid[2][4]=4;
-    grid[7][2]=2;
-    grid[0][2]=2;
+    grid[4][2]=1;
+    grid[0][3]=2;
+    grid[8][3]=2;
+    grid[4][0]=3;
+    grid[1][1]=3;
+    grid[6][1]=3;
+    grid[6][3]=3;
+    grid[3][2]=4;
+    grid[7][0]=4;
+    grid[5][2]=4;
+    grid[8][2]=4;
+    grid[0][4]=4;
+    grid[2][0]=5;
+    grid[3][3]=6;
+    grid[4][4]=6;
+    grid[0][1]=7;
+}
+
+void initLevel4 (TGrid &grid)
+{
+    initGrid(grid);
+    grid[1][2]=1;
+    grid[0][0]=2;
+    grid[4][4]=2;
+    grid[8][4]=2;
+    grid[6][0]=3;
+    grid[0][2]=3;
+    grid[3][2]=3;
+    grid[2][4]=3;
+    grid[8][0]=4;
+    grid[2][1]=4;
+    grid[4][2]=4;
+    grid[7][2]=4;
+    grid[6][3]=4;
+    grid[1][0]=5;
+    grid[3][1]=5;
+    grid[6][4]=6;
+    grid[8][1]=7;
+    grid[0][4]=8;
+}
+
+void initLevel5 (TGrid &grid)
+{
+    initGrid(grid);
+
+}
+
+void initLevel6 (TGrid &grid)
+{
+    initGrid(grid);
+
 }
 
 void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid, TTabImg tabImg)
@@ -95,21 +146,6 @@ void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid, TTabIm
     SDL_Flip(screen);
 }
 
-
-void fillingTab (TTabImg &tabImg)
-{
-    tabImg[0]=loadImageWithColorKey("monster.png",0,255,0);
-    tabImg[1]=loadImageWithColorKey("snowman.png",0,255,0);
-    tabImg[2]=loadImageWithColorKey("gift.png",0,255,0);
-    tabImg[3]=loadImageWithColorKey("fit.png",0,255,0);
-//    tabImg[4]=loadImageWithColorKey("sprite.bmp",0,0,255);
-//    tabImg[5]=loadImageWithColorKey("sprite.bmp",0,0,255);
-//    tabImg[6]=loadImageWithColorKey("sprite.bmp",0,0,255);
-//    tabImg[7]=loadImageWithColorKey("sprite.bmp",0,0,255);
-    tabImg[8]=loadImage("finishlevel.png");
-    tabImg[9]=loadImage("finishgame.png");
-}
-
 void finishLevel(TGrid grid,bool &level,int &numLevel)
 {
     int nbMonster;
@@ -125,15 +161,11 @@ void finishLevel(TGrid grid,bool &level,int &numLevel)
     }
     if (nbMonster==0)
     {
-        SDL_Delay(1000);
-        level=false;
         numLevel+=1;
+        level=false;
     }
 
 }
-
-
-
 
 
 

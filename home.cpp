@@ -1,41 +1,41 @@
 #include "home.h"
 
-void inithome(SDL_Surface *home, SDL_Surface *screen, bool &play, bool &game, bool &quit)
+void inithome(SDL_Surface *home, SDL_Surface *screen,SDL_Surface *home2, bool &play, bool &game,bool &quit)
 {
 
     applySurface(0,0,home,screen,NULL);
-    SDL_Flip(screen);
 
     SDL_Event event;
-
-    int x=event.button.x;
-    int y=event.button.y;
 
     while (SDL_PollEvent(&event))
     {
         switch (event.type)
         {
-
-        case SDL_MOUSEBUTTONDOWN:
-
-            if ((x>455) && (x<480) && (y>410) && (y<485))
+            case SDL_QUIT:
+                quit = true;
+                break;
+            case SDL_MOUSEBUTTONUP:
             {
-
+                int x=event.button.x;
+                int y=event.button.y;
+                if ((x>265) && (x<350) && (y>320) && (y<700))
                 {
                     play=true;
-                    game=false;
                 }
+                break;
             }
-            break;
-
-        case SDL_QUIT:
-
-            quit=true;
-
-            break;
-
+            case SDL_MOUSEMOTION:
+            {
+                int x=event.button.x;
+                int y=event.button.y;
+                if ((x>265) && (x<350) && (y>320) && (y<700))
+                {
+                    applySurface(0,0,home2,screen,NULL);
+                }
+                break;
+            }
         }
-
+        SDL_Flip(screen);
     }
-}
 
+}

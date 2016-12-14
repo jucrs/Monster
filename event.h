@@ -2,9 +2,10 @@
 #define EVENT_H
 
 #include "grid.h"
+#include "levels.h"
 
 
-void Event (bool &clic, bool &quit, TGrid &grid, int &x, int &y, bool &level);
+void Event (SDL_Surface *screen,TTabImg &tabImg,bool &clic, bool &quit, TGrid &grid, int &x, int &y, int &nbLife, bool &level,bool &game);
 
 #endif // EVENT_H
 

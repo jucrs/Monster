@@ -2,9 +2,11 @@
 #define MONSTER
 #include "function.h"
 #include "grid.h"
+#include "levels.h"
 
 const int sizeMw=60;
 const int sizeMh=60;
+using TTabImg = array<SDL_Surface*,20>;
 
 /****************** Nom de la fonction **********************
 * mooveMonster                                              *
@@ -17,7 +19,7 @@ const int sizeMh=60;
 *********************** Sorties *****************************
 * la grille                                                 *
 ************************************************************/
-void moveMonster (TGrid &grid, int &mi, int &mj, int &i, int &j, bool &level);
+void moveMonster (SDL_Surface *screen, TGrid &grid, TTabImg &tabImg, int &mi, int &mj, int &i, int &j, int &nbLife,bool &level,bool &game);
 
 
 #endif // MONSTER

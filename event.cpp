@@ -3,29 +3,22 @@
 #include "monster.h"
 
 
-void Event (bool &clic, bool &quit, TGrid &grid, int &x,int &y, bool &level)
+void Event (SDL_Surface *screen, TTabImg &tabImg, bool &clic, bool &quit, TGrid &grid, int &x, int &y, int &nbLife, bool &level, bool &game)
 {
     SDL_Event event;
     int i,j;
 
     while (SDL_PollEvent(&event))
     {
-
         switch (event.type)
         {
-
-
         case SDL_QUIT:
-
             quit=true;
-
             break;
 
         case SDL_MOUSEBUTTONDOWN:
-
             if (!clic)
             {
-
                 int k = event.button.x;
                 int l = event.button.y;
 
@@ -35,21 +28,17 @@ void Event (bool &clic, bool &quit, TGrid &grid, int &x,int &y, bool &level)
                 {
                     clic=true;
                 }
-
             }
-
             break;
 
         case SDL_MOUSEBUTTONUP:
-
                 if (clic)
                 {
                     convertTo_IJ(event.button.x,event.button.y,i,j);
-                    moveMonster(grid,x,y,i,j,level);
+                    moveMonster(screen,grid,tabImg,x,y,i,j,nbLife,level,game);
                     clic = false;
                 }
                 break;
-
             }
         }
     }

@@ -2,7 +2,7 @@
 #include "levels.h"
 #include "obstacle.h"
 
-void moveMonster (TGrid &grid,int &mi, int &mj, int &i, int &j,bool &level)
+void moveMonster (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, int &mj, int &i, int &j,int &nbLife,bool &level,bool &game)
 {
     if (i < mi && j==mj) //colonne situé au-dessus du monstre
     {
@@ -12,16 +12,15 @@ void moveMonster (TGrid &grid,int &mi, int &mj, int &i, int &j,bool &level)
             grid[mi-1][mj]=1;
             grid[mi][mj]=0;
             mi--;
-            i--;
+            i--; 
         }
-        SwitchObstacle(grid,mi-1,mj);
+        switchObstacle(screen,grid,tabImg,mi,mj,mi-1,mj,nbLife,level,game);
 
         if (mi-1<0)
         {
-            cout << "perdu"<< endl;
-            level=false;
+            nbLife=-1;
         }
-
+        lost(screen,tabImg,nbLife,game,level);
     }
     else if (i == mi && j>mj) //ligne situé à droite du monstre
     {
@@ -32,12 +31,11 @@ void moveMonster (TGrid &grid,int &mi, int &mj, int &i, int &j,bool &level)
             grid[mi][mj]=0;
             mj++;
         }
-        SwitchObstacle(grid,mi,mj+1);
+        switchObstacle(screen,grid,tabImg,mi,mj,mi,mj+1,nbLife,level,game);
 
         if (mj+1>SIZE_W)
         {
-            cout << "perdu"<< endl;
-            level=false;
+            nbLife=-1;
         }
     }
     else if (i > mi && j == mj) //colonne situé en-dessous du monstre
@@ -49,12 +47,11 @@ void moveMonster (TGrid &grid,int &mi, int &mj, int &i, int &j,bool &level)
             grid[mi][mj]=0;
             mi++;
         }
-        SwitchObstacle(grid,mi+1,mj);
+        switchObstacle(screen,grid,tabImg,mi,mj,mi+1,mj,nbLife,level,game);
 
         if (mi+1>=SIZE_H)
         {
-            cout << "perdu"<< endl;
-            level=false;
+            nbLife=-1;
         }
     }
     else if (i == mi && j<mj) //ligne situé à gauche du monstre
@@ -66,12 +63,11 @@ void moveMonster (TGrid &grid,int &mi, int &mj, int &i, int &j,bool &level)
             grid[mi][mj]=0;
             mj--;
         }
-        SwitchObstacle(grid,mi,mj-1);
+        switchObstacle(screen,grid,tabImg,mi,mj,mi,mj-1,nbLife,level,game);
 
         if (mj-1<0)
         {
-            cout << "perdu"<< endl;
-            level=false;
+            nbLife=-1;
         }
     }
 }

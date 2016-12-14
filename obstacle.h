@@ -2,7 +2,15 @@
 #define OBSTACLE_H
 #include "function.h"
 #include "grid.h"
+#include "levels.h"
 
-void SwitchObstacle (TGrid &grid, int i, int j);
+using TTabImg = array<SDL_Surface*,20>;
+
+void finishLevel(TGrid grid, bool &level, int &numLevel);
+
+void switchObstacle (SDL_Surface *screen, TGrid &grid, TTabImg &tabImg, int &mi, int &mj, int i, int j, int nbLife, bool &level, bool &game);
+
+void lost (SDL_Surface *screen, TTabImg &tabImg, int nbLife, bool &game, bool &level);
+
 #endif // OBSTACLE_H
 

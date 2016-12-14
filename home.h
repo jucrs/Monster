@@ -13,6 +13,6 @@
 *********************** Sorties *****************************
 * fond d'écran, écran, play, level, quit                    *
 ************************************************************/
-void inithome(SDL_Surface *home, SDL_Surface *screen, bool &play, bool &game, bool &quit);
+void inithome(SDL_Surface *home, SDL_Surface *screen, SDL_Surface *home2, bool &play, bool &game, bool &quit);
 
 #endif // HOME_H

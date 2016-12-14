@@ -9,14 +9,14 @@ const int CASE_X = 70;
 const int CASE_Y = 70;
 
 /**************** Définition de la grille *******************
-* 1=monster                                                 *
-* 2=sleeping monster                                        *
-* 3=gift                                                    *
-* 4=fit                                                     *
-* 5=speed down                                              *
-* 6=speed up                                                *
-* 7=speed right                                             *
-* 8=speed left                                              *
+* 1=    monster                                             *
+* 2=    sleeping monster                                    *
+* 3=    gift                                                *
+* 4=    fit                                                 *
+* 5=    arrow down                                          *
+* 6=    arrow up                                            *
+* 7=    arrow right                                         *
+* 8=    arrow left                                          *
 *************************************************************/
 const int SIZE_H = 9;
 const int SIZE_W = 5;

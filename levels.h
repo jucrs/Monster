@@ -21,6 +21,11 @@ using TTabImg = array<SDL_Surface*,20>;
 * la grille                                                 *
 ************************************************************/
 void initLevel1 (TGrid &grid);
+void initLevel2 (TGrid &grid);
+void initLevel3 (TGrid &grid);
+void initLevel4 (TGrid &grid);
+void initLevel5 (TGrid &grid);
+void initLevel6 (TGrid &grid);
 
 /****************** Nom de la fonction **********************
 * shwoLevel                                                 *
@@ -34,11 +39,6 @@ void initLevel1 (TGrid &grid);
 * fond d'écran, écran                                       *
 ************************************************************/
 void showLevel (SDL_Surface *screen, SDL_Surface *background, TGrid grid, TTabImg tabImg);
-
-void finishLevel(TGrid grid, bool &level, int &numLevel);
-
-void initLevel2 (TGrid &grid);
-void initLevel3 (TGrid &grid);
 
 void fillingTab (TTabImg &tabImg);
 #endif // LEVELS
