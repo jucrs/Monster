@@ -8,7 +8,7 @@ using TTabImg = array<SDL_Surface*,20>;
 
 void finishLevel(SDL_Surface *screen, TTabImg &tabImg, TGrid grid, bool &level, int &numLevel, bool end);
 
-void switchObstacle (SDL_Surface *screen, TGrid &grid, TTabImg &tabImg, int &mi, int &mj, int i, int j, int nbLife, bool &level, bool &game);
+void switchObstacle (SDL_Surface *screen, TGrid &grid, TTabImg &tabImg, int &mi, int &mj, int i, int j, int nbLife, bool &level, bool &game, bool &deplacementH, bool &deplacementB, bool &deplacementG, bool &deplacementD);
 
 void lost (SDL_Surface *screen, TTabImg &tabImg, int nbLife, bool &game, bool &level);
 

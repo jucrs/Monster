@@ -18,13 +18,14 @@ void fillingTab (TTabImg &tabImg)
     tabImg[11]=loadImageWithColorKey("heart.png",0,255,0);
 }
 
-void switchObstacle (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, int &mj,int i, int j,int nbLife,bool &level,bool &game)
+void switchObstacle (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, int &mj,int i, int j,int nbLife,bool &level,bool &game, bool &deplacementH, bool &deplacementB, bool &deplacementG, bool &deplacementD)
 {
     switch (grid[i][j])
     {
     case 2: //si l'obstacle est un bonhome de neige
 
         grid[i][j]=1;
+
         cout << "neige" << endl;
 
         break;
@@ -38,6 +39,22 @@ void switchObstacle (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, i
 
     case 5: //si l'obstacle est une flèche vers le bas
 
+        if (deplacementB)
+            mi+=2;
+
+        if(deplacementG)
+        {
+            mj--;
+            mi++;
+        }
+
+        if(deplacementD)
+        {
+            mj++;
+            mi--;
+        }
+
+        //Déplacement
         while (grid[mi+1][mj] == 0)
         {
             grid[mi][mj]=0;
@@ -55,11 +72,31 @@ void switchObstacle (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, i
         }
 
         cout << "bas" << endl;
-        switchObstacle(screen,grid,tabImg,mi,mj,mi+1,mj,nbLife,level,game);
+
+        switchObstacle(screen,grid,tabImg,mi,mj,mi-1,mj,nbLife,level,game,deplacementH,deplacementB,deplacementG,deplacementD);
 
         break;
 
     case 6: //si l'obstacle est une flèche vers le haut
+
+        if (deplacementH)
+            mi-=2;
+
+//        if (deplacementB)
+//            mi++;
+
+        if(deplacementG)
+        {
+            mj--;
+            mi--;
+        }
+
+        if(deplacementD)
+        {
+            grid[mi][mj]=0;
+            mj++;
+            mi--;
+        }
 
         while (grid[mi-1][mj]==0)
         {
@@ -77,12 +114,30 @@ void switchObstacle (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, i
 
         cout << "haut" << endl;
 
-        switchObstacle(screen,grid,tabImg,mi,mj,mi-1,mj,nbLife,level,game);
-
+        switchObstacle(screen,grid,tabImg,mi,mj,mi-1,mj,nbLife,level,game,deplacementH,deplacementB,deplacementG,deplacementD);
 
         break;
 
     case 7: //si l'obstacle est une flèche vers la droite
+
+        if (deplacementH)
+        {
+            mi--;
+            mj++;
+        }
+
+        if (deplacementB)
+        {
+            mi++;
+            mj++;
+        }
+
+//        if(deplacementG)
+//            mj--;
+
+        if(deplacementD)
+            mj+=2;
+
 
         while (grid[mi][mj+1] == 0)
         {
@@ -101,11 +156,29 @@ void switchObstacle (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, i
         }
 
         cout << "droite" << endl;
-        switchObstacle(screen,grid,tabImg,mi,mj,mi,mj+1,nbLife,level,game);
+        switchObstacle(screen,grid,tabImg,mi,mj,mi-1,mj,nbLife,level,game,deplacementH,deplacementB,deplacementG,deplacementD);
 
         break;
 
     case 8: //si l'obstacle est une flèche vers la gauche
+
+        if (deplacementH)
+        {
+            mi--;
+            mj--;
+        }
+
+        if (deplacementB)
+        {
+            mi++;
+            mj--;
+        }
+
+        if(deplacementG)
+            mj-=2;
+
+//        if(deplacementD)
+//            mj++;
 
         while (grid[mi][mj-1] == 0)
         {
@@ -123,7 +196,7 @@ void switchObstacle (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, i
         }
 
         cout << "gauche" << endl;
-        switchObstacle(screen,grid,tabImg,mi,mj,mi,mj-1,nbLife,level,game);
+        switchObstacle(screen,grid,tabImg,mi,mj,mi-1,mj,nbLife,level,game,deplacementH,deplacementB,deplacementG,deplacementD);
 
         break;
 
@@ -157,13 +230,13 @@ void lost (SDL_Surface *screen, TTabImg &tabImg,int nbLife,bool &game, bool &lev
         break;
 
     default:
-        {
-            applySurface(0,0,tabImg[10],screen,NULL);
-            SDL_Flip(screen);
-            SDL_Delay(1000);
-            game=true;
-            break;
-        }
+    {
+        applySurface(0,0,tabImg[10],screen,NULL);
+        SDL_Flip(screen);
+        SDL_Delay(1000);
+        game=true;
+        break;
+    }
 
     }
 

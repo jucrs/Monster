@@ -70,11 +70,13 @@ int main()
                 case 2:
                     initLevel2(grid);
                     level=true;
+
                     break;
 
                 case 3:
                     initLevel3(grid);
                     level=true;
+
                     break;
 
  /*               case 4:

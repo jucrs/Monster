@@ -4,10 +4,16 @@
 
 void moveMonster (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, int &mj, int &i, int &j,int &nbLife,bool &level,bool &game)
 {
+    bool deplacementG=false; //--------------------------------------------
+    bool deplacementD=false;
+    bool deplacementH=false;
+    bool deplacementB=false; //--------------------------------------------
+
     if (i < mi && j==mj) //ligne situé au-dessus du monstre
     {
         while (grid[mi-1][mj]==0)
         {
+            deplacementH=true; //---------------------------------------------
             grid[mi][mj]=0;
             grid[mi-1][mj]=1;
             grid[mi][mj]=0;
@@ -21,7 +27,7 @@ void moveMonster (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, int 
             level=false;
         }
         else
-        switchObstacle(screen,grid,tabImg,mi,mj,mi-1,mj,nbLife,level,game);
+        switchObstacle(screen,grid,tabImg,mi,mj,mi-1,mj,nbLife,level,game,deplacementH,deplacementB,deplacementG,deplacementD);
     }
 
 
@@ -29,6 +35,7 @@ void moveMonster (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, int 
     {
         while (grid[mi][mj+1] == 0)
         {
+            deplacementD=true; //------------------------------------------
             grid[mi][mj]=0;
             grid[mi][mj+1]=1;
             grid[mi][mj]=0;
@@ -44,7 +51,7 @@ void moveMonster (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, int 
             level=false;
         }
         else
-            switchObstacle(screen,grid,tabImg,mi,mj,mi,mj+1,nbLife,level,game);
+            switchObstacle(screen,grid,tabImg,mi,mj,mi,mj+1,nbLife,level,game,deplacementH,deplacementB,deplacementG,deplacementD);
     }
 
 
@@ -52,6 +59,7 @@ void moveMonster (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, int 
     {
         while (grid[mi+1][mj] == 0)
         {
+            deplacementB=true; //-------------------------------------------
             grid[mi][mj]=0;
             grid[mi+1][mj]=1;
             grid[mi][mj]=0;
@@ -66,8 +74,9 @@ void moveMonster (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, int 
             cout << "nombre de vie bas: " << nbLife << endl;
             level=false;
         }
+
         else
-        switchObstacle(screen,grid,tabImg,mi,mj,mi+1,mj,nbLife,level,game);
+        switchObstacle(screen,grid,tabImg,mi,mj,mi+1,mj,nbLife,level,game,deplacementH,deplacementB,deplacementG,deplacementD);
     }
 
 
@@ -75,6 +84,7 @@ void moveMonster (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, int 
     {
         while (grid[mi][mj-1] == 0)
         {
+            deplacementG=true; //-----------------------------------------------
             grid[mi][mj]=0;
             grid[mi][mj-1]=1;
             grid[mi][mj]=0;
@@ -89,7 +99,7 @@ void moveMonster (SDL_Surface *screen,TGrid &grid,TTabImg &tabImg, int &mi, int 
             level=false;
         }
         else
-        switchObstacle(screen,grid,tabImg,mi,mj,mi,mj-1,nbLife,level,game);
+        switchObstacle(screen,grid,tabImg,mi,mj,mi,mj-1,nbLife,level,game,deplacementH,deplacementB,deplacementG,deplacementD);
 
     }
 
